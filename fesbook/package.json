@@ -10,5 +10,8 @@
   "devDependencies": {
     "tailwindcss": "^3.0.24",
     "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "serve": "^13.0.2"
   }
 }
