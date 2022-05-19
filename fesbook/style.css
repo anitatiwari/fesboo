@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+    width: 450px;
+    margin: 50px auto;
+    min-height: 200px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+}
+.fieldRow {
+    position: relative;
+    display: inline-block;
+    width: 400px;
+    margin: 10px 0;
+}
+  .col2 {
+    width: 210px;
+    float: left;
+  }
+  .last {
+    float: right;
+  }
+ 
+    input:focus {
+      outline: none;
+        border-color: #4aa9f2;
+        box-shadow: 0px 0px 2px 3px #edf2f6;
+        background-color: #FFF;
+    }
+  
