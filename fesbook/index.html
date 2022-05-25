@@ -2,10 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <!-- <link rel="icon" type="image/svg+xml" href="favicon.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Festival</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <div id="app">
@@ -19,25 +20,76 @@
          </ul>
        </nav>
      </header>
-     <div>
-<!-- carousal -->
-     </div>
-  <template></template>
+     
+
+      <div class="container">
+        <div class="box">
+          <img src="1.jpg" alt="image1">
+        </div>
+        <div class="box">
+          <img src="2.jpg" alt="image2">
+        </div>
+        <div class="box">
+          <img src="3.jpg" alt="image3">
+        </div>
+        <div class="box">
+          <img src="4.jpg" alt="image4">
+        </div>
+        <div class="box">
+          <img src="5.jpg" alt="image5">
+        </div>
+        
+      </div>
+
+      <div class="textline">
+        <h2>Its TiMe tO AcT Book iT lOVe iT</h2>
+    <h3>EnJOy tHe ViBe</h3>
+      </div>
+
+
+      <template>
+      <section class="acts">
+        <template class="artist">
+          <a href="#info" class="open_artist"> <p id="artist_name"></p> click</a>
+          <p>/</p>
+        
+        <section class="elementcontainer">
+          
+        </section>
+      </section>
+
+      <section id="info">
+        <div class="card">
+          <figure>
+            <img src="" alt="" />
+          </figure>
+          <p class="name"></p>
+          <p class="members"></p>
+          <p class="genre"></p>
+          <p class="bio"></p>
+        </div>
+      </section>
+
+  </template>
+
+     <div class="grid grid-cols-2">
+<!-- cards -->
+
      <div class="grid grid-cols-2">
 <!-- cards -->
 <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-md">
   <div class="">
+    <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold" id="eventName">EVents name</div>
     <div class="md:shrink-0">
       <img class="h-48 w-full object-cover md:h-full " src="http://placeimg.com/720/480/nature?76645" alt="Man looking at item at a store">
     </div>
     <div class="p-8">
-      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold" id="eventName">EVents name</div>
+      
       <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline" id="genre">Genre</a>
       <p class="mt-2 text-slate-500" id="bio">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
     </div>
   </div>
 </div>
-
 
      </div>
      <div>
