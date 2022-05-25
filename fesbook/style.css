@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-.container{
+.contain{
     width: 90%;
     padding: 20px;
     margin: 100px auto;
@@ -35,3 +35,148 @@ transition: 1s;
 
 
 
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Koulen&family=Lobster&family=Macondo&family=Slabo+27px&family=Source+Serif+Pro&display=swap');
+
+
+/* 
+font-family: 'Abril Fatface', cursive;
+font-family: 'Koulen', cursive;
+font-family: 'Lobster', cursive;
+font-family: 'Macondo', cursive;
+font-family: 'Slabo 27px', serif;
+font-family: 'Source Serif Pro', serif; */
+.container {
+    width: 450px;
+    margin: 50px auto;
+    min-height: 200px;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+}
+.fieldRow {
+    position: relative;
+    display: inline-block;
+    width: 400px;
+    margin: 10px 0;
+}
+  .col2 {
+    width: 210px;
+    float: left;
+  }
+  .last {
+    float: right;
+  }
+ 
+    input:focus {
+      outline: none;
+        border-color: #4aa9f2;
+        box-shadow: 0px 0px 2px 3px #edf2f6;
+        background-color: #FFF;
+    }
+  .booking-form{
+    background-color: #1f1e1e;
+  }
+  body{
+    background-color: #110e0e;
+  }
+  .neon{
+    font-family: 'Macondo', cursive;
+    color:rgb(168, 161, 168);
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    text-shadow:0 0 10px #f24acb,
+    0 0 10px #a71885,
+    0 0 10px #a71885;
+  }
+/*   
+   .music_notes1{
+    z-index: 1;
+    top: 18rem;
+    animation: animate 2s infinite ;
+
+   }
+   @keyframes animate{
+0%{
+  transform: translateX(3rem)scale(0.2);
+
+}
+80%{
+opacity: 0.5;
+}
+100%{
+  opacity: 0;
+}
+   }
+   @keyframes animate2{
+    0%{
+      transform: translateX(-3rem)scale(0.2);
+    
+    }
+    80%{
+    opacity: 0.5;
+    }
+    100%{
+      opacity: 0;
+    }
+       }
+
+   .music_notes2{
+    z-index: 1;
+    top: 18rem;
+    right: 12rem;
+  transform: scaleX(-1);
+    animation: animate2 2s infinite ;
+
+   } */
+ .left-guitar{
+  transform: rotate(-20deg);
+  z-index: 0;
+ }
+ .right-guitar{
+  transform: rotate(20deg);
+  z-index: 0;
+
+ }
+ .hide {
+  visibility: hidden;
+}
+
+.modalpop {
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  width: 50vw;
+  height: 90vh;
+  background-color:rgb(10, 9, 9);
+  display: flex ;
+  
+  justify-content: center;
+  align-items: center;
+  color: rgb(24, 22, 22);
+
+}
+.modalpop2 {
+  position: fixed;
+  top: 2rem;
+  left: 0;
+  width: 50vw;
+  height: 90vh;
+  background-color:rgb(13, 12, 12);
+  display: flex ;
+  
+  justify-content: center;
+  align-items: center;
+  color: rgb(219, 210, 210);
+
+}
+
+button.closingbutton {
+  position: absolute;
+  right: -1em;
+  top: -1em;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  background-color: black;
+  color: red;
+}
