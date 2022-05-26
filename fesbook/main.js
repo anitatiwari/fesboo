@@ -33,36 +33,42 @@ let bandJson;
 window.addEventListener("DOMContentLoaded", start);
 
 async function start() {
-  await loadBandJson();
-  await loadScheduleJson();
-}
+ 
 
 //------------------------ FETCH ALL DATA
 
 //Fetch bands
-async function loadBandJson() {
-  const bands = await fetch("https://festevent-book.herokuapp.com/bands", {
+  const bandsPromise = await fetch("https://festevent-book.herokuapp.com/bands", {
     method: "GET",
   }
   );
-  bandJson = await bands.json();
-  displayLineup();
+  // bandJson = await bands.json();
+  // displayLineup();
   
-}
+
 
 //Fetch schedule
-async function loadScheduleJson() {
-  const schedule = await fetch(
+
+  const schedulePromise = await fetch(
     "https://festevent-book.herokuapp.com/schedule",
     {
       method: "GET",
+   
     }
+
   );
-  const scheduleJson = await schedule.json();
-  console.log(scheduleJson);
+  Promise.all([bandsPromise, schedulePromise])
+  .then((valueArray) => {
+      return Promise.all(valueArray.map((r) => r.json()));
+  })
+  // Then forward the two arrays to be sorted by fillInfo
+  .then(([bands, schedule]) => {
+      console.log(bands, schedule);
+  })
+
 }
 
-
+start();
 // Fetch Camping spots
 // const availableSpots = await fetch(
 //   "https://festevent-book.herokuapp.com/available-spots",
