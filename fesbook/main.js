@@ -1,4 +1,4 @@
-"use strict";
+// "use strict";
 
 document.getElementById("recipient").addEventListener("click",onClick);
 function onClick(){
@@ -26,6 +26,7 @@ function closeDialog2() {
     .querySelector("#popUp2 .closingbutton")
     .removeEventListener("click", closeDialog2);
 }}
+
 let lineup = [];
 let bandJson;
 
@@ -44,6 +45,8 @@ async function loadBandJson() {
     method: "GET",
   }
   );
+  bandJson = await bands.json();
+  displayLineup();
   
 }
 
@@ -72,33 +75,39 @@ console.log(availableSpotsJson);
 
 //................ Fetch all done
 
-// function displayLineup() {
+function displayLineup() {
 
-//   let temp = document.querySelector(".artist");
-//   let cont = document.querySelector(".elementcontainer");
+  let temp = document.querySelector(".artist");
+  let cont = document.querySelector(".elementcontainer");
 
-//   bandJson.forEach((artist) => {
-//     let clone = temp.cloneNode(true).content;
-//     clone.querySelector("#artist_name").innerHTML = artist.name;
+  bandJson.forEach((artist) => {
+    let clone = temp.cloneNode(true).content;
+    clone.querySelector("#artist_name").innerHTML = artist.name;
 
-//     clone.querySelector(".open_artist").addEventListener("click", () => openArtist(artist));
-//     cont.appendChild(clone);
+    clone.querySelector(".open_artist").addEventListener("click", () => openArtist(artist));
+    
+    cont.appendChild(clone);
+  });
+}
 
-//     cont.appendChild(clone);
-//   });
-// }
+//------------------------ SHOW SINGLE ARTIST
 
-// //------------------------ SHOW SINGLE ARTIST
-
-// function openArtist(artist) {
+function openArtist(artist) {
   
 
-//   // SHOW ARTIST INFO
+  // SHOW ARTIST INFO
   
-//   document.querySelector("#info .name").textContent = artist.name;
-//   document.querySelector("#info .members").textContent = artist.members;
-//   document.querySelector("#info .genre").textContent = artist.genre;
-//   document.querySelector("#info img").src = artist.logo;
-//   document.querySelector("#info .bio").textContent = artist.bio;
-// }
+  document.querySelector("#info .name").textContent = artist.name;
+  document.querySelector("#info .members").textContent = artist.members;
+  document.querySelector("#info .genre").textContent = artist.genre;
+  document.querySelector("#info img").src = artist.logo;
+  document.querySelector("#info .bio").textContent = artist.bio;
+}
+
+document.querySelector("#lineup_menu").addEventListener("click", openLineup);
+
+function openLineup() {
+  // MOVE LINEUP SECTION UP
+  document.querySelector("#the_lineup_page").classList.add("active_up");
+}
 
