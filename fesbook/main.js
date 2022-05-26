@@ -61,16 +61,16 @@ async function loadScheduleJson() {
 
 
 // Fetch Camping spots
-const availableSpots = await fetch(
-  "https://festevent-book.herokuapp.com/available-spots",
-  {
-    method: "GET",
-  }
-);
-const availableSpotsJson = await availableSpots.json();
-console.log(availableSpotsJson);
+// const availableSpots = await fetch(
+//   "https://festevent-book.herokuapp.com/available-spots",
+//   {
+//     method: "GET",
+//   }
+// );
+// const availableSpotsJson = await availableSpots.json();
+// console.log(availableSpotsJson);
 
-//................ Fetch all done
+// //................ Fetch all done
 
 // function displayLineup() {
 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ticket.css">
+</head>
+<body>
+    <!-- <div class="ticket-container">
+        <h2>YOUR TICKET</h2>
+    <div class="ticket border border-slate-700 w-72 h-96">
+<div class="imageContainer">
+<img src="/4.jpg" alt="" class="imageTicket h-96">
+</div>
+<div class="issuedTo">
+<p>Issued to <span id="name">Anita</span> </p>
+
+</div>
+<div>
+<div class="date">
+
+</div>
+<div class="Spot">
+
+</div>
+</div>
+<div class="barCode" id="barScan">
+
+</div>
+</div>
+    </div> -->
+    <div class="container bg-black">
+    <div class="item">
+   <!-- end item-right -->
+      
+      <div class="item-up   m-2">
+        
+        <h2 class="title text-indigo-200 text-2xl">Music Event</h2>
+        <img src="/3.jpg" alt="festival image" class="rounded-xl m-3">
+        <div class="sce flex justify-evenly border border-white rounded p-6">
+            <div class="">  
+                <h5>Date:</h5> <p class="">Monday</p>
+                <p class="date">
+                  <span class="date">15th 2016</span> 
+               </p></div>
+     
+       
+       
+        <div class="Area">
+            <h5>Area:</h5>
+            <p>  Nilfheim</p>
+          </div>
+        <div class="location">
+         <h5>Address:</h5>
+          <p class="address">North  <br/> </p>
+        </div>
+    </div>
+        
+      </div> <!-- end item-right -->
+   <!-- end item -->
+   <div class="item-down">
+       <div>
+        <svg id="barcode"></svg>
+</div>
+    <h2 class="num">23</h2>
+    <p class="day">Feb</p>
+  
+  </div> 
+  <span class="up-border bg-black"></span>
+  <span class="dotted"></span>
+  <span class="down-border bg-black"></span>
+    </div>
+</div>
+
+   
+    <script src="booking.js"></script>
+    <script type="module" src="/main.js"></script>
+    <script src="JsBarcode.all.min.js"></script>
+</body>
+
+
+</html>
