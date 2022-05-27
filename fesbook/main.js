@@ -1,4 +1,4 @@
-// "use strict";
+
 
 document.getElementById("recipient").addEventListener("click",onClick);
 function onClick(){
@@ -32,7 +32,7 @@ let bandJson;
 
 window.addEventListener("DOMContentLoaded", start);
 
-async function start() {
+ async function start() {
  
 
 //------------------------ FETCH ALL DATA
@@ -57,18 +57,25 @@ async function start() {
     }
 
   );
-  Promise.all([bandsPromise, schedulePromise])
+  const spotsPromise = await fetch(
+    "https://festevent-book.herokuapp.com/available-spots",
+    {
+      method: "GET",
+    }
+  );
+  Promise.all([bandsPromise, schedulePromise, spotsPromise])
   .then((valueArray) => {
       return Promise.all(valueArray.map((r) => r.json()));
   })
   // Then forward the two arrays to be sorted by fillInfo
-  .then(([bands, schedule]) => {
-      console.log(bands, schedule);
+  .then(([bands, schedule, spots]) => {
+      console.log(bands, schedule, spots);
   })
-
+ 
 }
 
 start();
+
 // Fetch Camping spots
 // const availableSpots = await fetch(
 //   "https://festevent-book.herokuapp.com/available-spots",
@@ -116,4 +123,14 @@ function openLineup() {
   // MOVE LINEUP SECTION UP
   document.querySelector("#the_lineup_page").classList.add("active_up");
 }
+function availableSpots(spots){
+  const clone2 = document
+  .querySelector("template #spots")
+  .content.cloneNode(true);
+  clone2.querySelector(".area").textContent = spots.area;
+  clone2.querySelector(".spots").textContent = spots.spots
+  clone2.querySelector("available").textContent = spots.available
+  document.querySelector("#availableSpots").appendChild(clone2);
+}
+availableSpots(spots);
 

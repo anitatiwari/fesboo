@@ -1,3 +1,5 @@
+
+
 let green_camp;
 let pre_book = document.getElementById("pre-book").innerText;
 // let green_camp= document.getElementById("green-cam").value;
@@ -107,5 +109,6 @@ function updateTotalGlobal() {
   console.log("summedUp", summedUp);
   updateTotal(summedUp);
 }
+
 
 

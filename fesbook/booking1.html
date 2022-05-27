@@ -22,11 +22,11 @@
         </div>
         <div class=" shadow-xl shadow-pink-900 rounded px-8 pt-6 pb-8 md:m-12 text-white ">
             <h5 class=" buy-ticket  font-bold  text-2xl  md:m-5 text-center ">Buy Ticket</h5>
-            <div class="flex flex-col md:flex-row justify-evenly">
-                <div class="addminus bg-fuchsia-800 p-3 rounded-xl ">
+            <div class="flex felx-col md:flex-row justify-evenly gap-2">
+                <div class="addminus bg-fuchsia-800 md:p-3 rounded-xl md:w-46 md:m-2 ">
                     <div class="p-2  rounded  ">
-                        <p class="quan1 font-semibold text-xl p-2 ">Normal Ticket</p>
-                        <p class="quan1 font-semibold " >per Ticket -  <span id="normal-price">799 </span> dkk</p>
+                        <p class="quan1 font-semibold md:text-xl md:p-2 ">Normal Ticket</p>
+                        <p class="quan1  " >per Ticket -  <span id="normal-price">799 </span> dkk</p>
                     </div>
                     <div class="quan flex justify-around">
                         <div id="poke1"><button
@@ -38,8 +38,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="addminus bg-yellow-700 p-5 rounded-xl ">
-                    <div class="p-2">
+                <div class="addminus bg-yellow-700 md:p-5 rounded-xl md:w-46 md:m-2 ">
+                    <div class="md:p-1">
                         <p class="quan1 font-semibold text-xl  p-2">VIP Ticket</p>
                         <p class="quan1 font-semibold" >per Ticket - <span id="vip-price">1299</span>  dkk </p>
                     </div>
@@ -114,7 +114,8 @@
             </div> -->
             <div>
                 <h5 class="font-semibold text-xl text-center md:p-3">Available Spots</h5>
-                <template></template>
+                <div id="availableSpots">
+                <template id="spots">
                 <div class="bg-fuchsia-300 p-3 m-3 text-xl text-slate-900 flex justify-evenly">
                     <p class="area">Area</p>
                     <p class="spots">spots</p>
@@ -127,33 +128,32 @@
                             <input class="mr-2 leading-tight" type="checkbox"> </label>
                     </div>
                 </div>
+            </template>
 
-
+</div>
 
             </div>
-            <div>
-                <p class="bg-red-600  p-2 text-center w-36 rounded m- 3"> Total : <span id="total">000</span></p>
+            <div class="absolute  top-6 right-12">
+                <p class="bg-slate-600  p-2 text-center w-36 rounded m-3 p-2 text-xl "> Your Total : <span id="total" class="text-yellow-300">000</span> kr </p>
             </div>
 
             <div class="flex   justify-evenly  p-4">
-                <div class="bg-slate-400  rounded-xl p-4 text-black cursor-pointer">
-                    Ticket Information
+              
+           
+                <div class="bg-orange-300  rounded cursor-pointer ">
+                    <p class=" text-slate-800 text-md font-bold text-center p-4" id="recipient">Next Step</p>
+                  
                 </div>
-                <div class="md:p-4">⟶</div>
-                <div class="bg-slate-300  rounded-xl cursor-pointer ">
-                    <p class=" text-black text-center p-4" id="recipient">Recipient Information</p>
-
-                </div>
-                <div class="md:p-4">⟶</div>
+<!--                
                 <div class="bg-slate-300 rounded-xl cursor-pointer " id="checkOut">
                     <p class="text-black text-center p-4">Checkout</p>
-                </div>
+                </div> -->
             </div>
             <div>
-                <form action="/booking.html">
+                <!-- <form action="/booking.html">
                     <button type="submit" action="booking1.html" class="bg-green-800 text-white p-2 rounded-md m-3">Get
                         Ticket</button>
-                </form>
+                </form> -->
 
             </div>
         </div>
@@ -243,10 +243,10 @@
                     </div>
 
                 </form>
-                <div class="text-center text-white p-3">
-                    <form action="#popUp2">
+                <div class="text-center text-white p-3" id="checkOut">
+                    <!-- <form action="#popUp2"> -->
                     <button class="checkoutform bg-purple-700 p-3 rounded text-center justify-items-center">Next
-                        Step</button></form>
+                        Step</button>
                 </div>
             </article>
         </div>
