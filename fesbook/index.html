@@ -7,45 +7,73 @@
     <title>Festival</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+   
 </head>
-<body>
+<body class="bg-zinc-900">
 
-<header>
-    <nav class="text-xl flex md:flex justify-around text-white ">
-        <img src="..." alt="logo">
-        <ul class="md:flex md:justify-center">
-            <li class="p-2">Home</li>
-            <li class="p-2">Contact</li>
-            <li class="p-2">Events</li>
-        </ul>
-    </nav>
+<header class="flex flex-row ">
+  <!-- <div><img src="logo.png" alt="logo" class="w-20"></div> -->
+  <div id="menu" class="md:m-5 m-3 " >
+    <div id="menu-bar">
+      <div id="bar1" class="bar"></div>
+      <div id="bar2" class="bar"></div>
+      <div id="bar3" class="bar"></div>
+    </div>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#project">Events</a></li>
+        <li><a href="booking1.html">Get Ticket</a></li>
+      </ul>
+    </nav> 
+  </div>
+  
+  <div class="menu-bg" id="menu-bg"></div>
 </header>
+<div class="title flex  md:flex-row md:justify-items-center justify-evenly	 rounded-2xl shadow-gray-700 text-center shadow-md   md:m-12 md:p-12">
+      
+  
 
+  <div> <img src="./public/SVG/guitar.svg" alt="" class="left-guitar w-44 md:w-full justify-self-start h-80 "></div>
+  <div><p class="neon md:text-7xl text-4xl">Music Festival</p></div>
+
+ 
+  <div> <img src="./public/SVG/guitar.svg" alt="" class="right-guitar w-44 md:w-full  h-80 "></div>
+<div></div>
+
+ </div>
 
 <div class="contain">
-    <div class="box">
-        <img src="1.jpg" alt="image1">
+    <div class="box ">
+        <img src="img1.jpg" alt="aditya-chinchure-ZhQCZjr9fHo-unsplash" class="object-cover">
     </div>
     <div class="box">
-        <img src="2.jpg" alt="image2">
+        <img src="img2.jpg" alt="alfonso-scarpa-e12EkMYv44U-unsplash">
     </div>
     <div class="box">
-        <img src="3.jpg" alt="image3">
+        <img src="img3.jpg" alt="markus-spiske-i2hfu0fcfus-unsplash" class="object-cover">
     </div>
     <div class="box">
-        <img src="4.jpg" alt="image4">
+        <img src="img4.jpg" alt="raphael-lovaski-RjD01Is-KnI-unsplash" class="object-cover">
     </div>
     <div class="box">
-        <img src="5.jpg" alt="image5">
+        <img src="img5.jpg" alt="victor-rodvang-rbSpGv1wb5M-unsplash" class="object-cover">
     </div>
+    <div class="box">
+      <img src="img6.jpg" alt="victor-rodvang-rbSpGv1wb5M-unsplash" class="object-cover">
+  </div>
 
 </div>
 
-<div class="textline">
-    <h2>Its TiMe tO AcT Book iT lOVe iT</h2>
+<div class="textline text-white text-5xl m-5">
+    <h2 class="quote">Its TiMe tO AcT Book iT lOVe iT</h2>
     <h3>EnJOy tHe ViBe</h3>
 </div>
-<div class="elementcontainer">
+<form action="booking1.html">
+<button class="getTicket bg-yellow-600 text-black text-xl  p-4  rounded-xl  border-zinc-800 border">
+Get Ticket</button>
+</form>
+<div class="elementcontainer ">
 
 </div>
 
@@ -54,37 +82,40 @@
         <div class="title">Example Modal</div>
         <button data-close-button class="close-button">&times;</button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body ">
 
     </div>
 </div>
 <div id="overlay"></div>
+<template  id="artist">
 <div class="wrapper">
-<div  id="artist">
+<div >
 
-        <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-md">
-            <div class="">
-                <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold" id="eventName">EVent
-                </div>
+        <div class=" w-96 rounded-xl shadow-2xl overflow-hidden m-2 ">
+            <div class="picture_band ">
+              <div class="z-2" >
+               
                 <div class="md:shrink-0">
-                    <img id="logo" class="h-48 w-full object-cover md:h-full " src="" alt="">
+                    <img id="logo" class="h-48 w-full object-cover md:h-80 md-w-96 opacity-35 " src="" alt="">
                 </div>
-                <div class="p-8">
-
-                    <a href="#" id="genre">Genre</a>
+              </div>
+                <div class="info  text-white   grid grid-cols-2">
+                  <div class=" tracking-wide text-xl text-rose-200 font-semibold text-center" id="bandName">BandName
+                  </div>
+<p id="genre" class="text-xl  "></p>
+                    <a href="#modal"  id="details" >Details</a>
                     <p  id="bio"></p>
-                    <ul id="member" style="list-style-type: circle"></ul>
-                    <a href="booking1.html" style="color: #4aa9f2">Booking</a>
+                    <h5>Band Members:</h5>
+                    <ul id="member"  class="flex  gap-2  w-full"></ul>
+                  
                 </div>
             </div>
         </div>
 
     </div>
-    <div>
-
+  </div>
+</template>
     
-</div>
-</div>
 <script type="module" src="/main.js"></script>
 </body>
 </html>

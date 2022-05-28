@@ -1,34 +1,8 @@
 
 
-document.getElementById("recipient").addEventListener("click",onClick);
-function onClick(){
-
-document.querySelector('#popUp').classList.remove("hide");  
- document.querySelector(" #popUp .closingbutton")
-  .addEventListener("click", closeDialog);
-
-function closeDialog() {
-  document.querySelector("#popUp").classList.add("hide");
-  document
-    .querySelector("#popUp .closingbutton")
-    .removeEventListener("click", closeDialog);
-}}
-document.getElementById("checkOut").addEventListener("click",checkOutForm);
-function checkOutForm(){
-
-document.querySelector('#popUp2').classList.remove("hide");  
- document.querySelector(" #popUp2 .closingbutton")
-  .addEventListener("click", closeDialog2);
-
-function closeDialog2() {
-  document.querySelector("#popUp2").classList.add("hide");
-  document
-    .querySelector("#popUp2 .closingbutton")
-    .removeEventListener("click", closeDialog2);
-}}
-
 let lineup = [];
 let bandJson;
+
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -38,7 +12,7 @@ async function start() {
 //------------------------ FETCH ALL DATA
 
 //Fetch bands
-    const bandsPromise = await fetch("https://festevent-book.herokuapp.com/bands")
+    const bandsPromise = await fetch("https://festevent-book.herokuapp.com/bands?max=10")
         .then(res => res.json())
         .then(d => {
             bandJson = d;
@@ -50,25 +24,29 @@ async function start() {
 
 //Fetch schedule
 
-    const schedulePromise = await fetch(
-        "https://festevent-book.herokuapp.com/schedule",
-        {
-            method: "GET",
+   
 
-        }
-    );
-    
+console.log(bandJson);
+
 
 }
 
+function displaySpots(spots){
+  console.log(spots)
+ spots.forEach((spot)=>{
 
+  const template= document.querySelector("template#spots").content;
+  const copy=template.cloneNode (true);
+
+
+copy.querySelector(".area").textContent=spot.area;
+
+
+  const parent=document.querySelector("#availableSpots");
+  parent.appendChild(copy);
+});
+}
 // Fetch Camping spots
-const availableSpots = await fetch(
-  "https://festevent-book.herokuapp.com/available-spots",
-  {
-    method: "GET",
-  }
-);
 
 start();
 // //................ Fetch all done
@@ -76,7 +54,7 @@ start();
 
 function displayLineup() {
 
-    let temp = document.querySelector("#artist");
+    let temp = document.querySelector("#artist").content;
     let cont = document.querySelector(".elementcontainer");
     bandJson = bandJson.filter(artist=>{
       return artist.genre.startsWith("Pop");
@@ -88,8 +66,8 @@ function displayLineup() {
 
     bandJson.forEach((artist) => {
         let clone = temp.cloneNode(true);
-        clone.querySelector("#genre").innerHTML = artist.name;
-        clone.querySelector("#bio").innerHTML = artist.genre;
+        clone.querySelector("#bandName").innerHTML = artist.name;
+        clone.querySelector("#genre").innerHTML = artist.genre;
         if (artist.logo.startsWith("http://")) {
             clone.querySelector("#logo").src = artist.logo;
         } else {
@@ -105,8 +83,10 @@ function displayLineup() {
         });
 
         document.querySelector(".elementcontainer").appendChild(clone);
+        
     });
 }
+
 
 //------------------------ SHOW SINGLE ARTIST
 
@@ -147,19 +127,22 @@ function openModal(modal) {
     modal.classList.add('active')
     overlay.classList.add('active')
 }
-function availableSpots(spots){
-  const clone2 = document
-  .querySelector("template #spots")
-  .content.cloneNode(true);
-  clone2.querySelector(".area").textContent = spots.area;
-  clone2.querySelector(".spots").textContent = spots.spots
-  clone2.querySelector("available").textContent = spots.available
-  document.querySelector("#availableSpots").appendChild(clone2);
-}
-availableSpots(spots);
 
 function closeModal(modal) {
     if (modal == null) return
     modal.classList.remove('active')
     overlay.classList.remove('active')
+}
+
+
+
+
+document.getElementById("menu").addEventListener("click", menuOnClick);;
+
+
+
+function menuOnClick() {
+  document.getElementById("menu-bar").classList.toggle("change");
+  document.getElementById("nav").classList.toggle("change");
+  document.getElementById("menu-bg").classList.toggle("change-bg");
 }

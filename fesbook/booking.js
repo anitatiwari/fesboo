@@ -1,4 +1,98 @@
+let scheduleJson;
+let spotsJson;
+window.addEventListener("DOMContentLoaded", init);
 
+async function init() {
+  const schedulePromise = await fetch(
+    "https://festevent-book.herokuapp.com/schedule",
+    {
+      method: "GET",
+    }
+  )
+    .then((res) => res.json())
+    .then((s) => {
+      scheduleJson = s;
+      displaySchedule(scheduleJson)
+    });
+
+  const availableSpots = await fetch(
+    "https://festevent-book.herokuapp.com/available-spots",
+    {
+      method: "GET",
+    }
+  )
+    .then((res) => res.json())
+    .then((sp) => {
+      spotsJson = sp;
+      spotsJson.forEach((spot) => {
+        displaySpots(spot);
+      });
+    });
+}
+
+
+function displaySchedulesList(scheduless) {
+  scheduless.forEach((schedules)=>{
+    schedules.forEach((schedule) => {
+      schedule.forEach((data1)=>{
+
+      })
+    });
+  });
+
+}
+function displaySpotList(spots) {
+
+  spots.forEach((spot) => {
+    spot.forEach((data) => {
+    });
+  });
+}
+
+function displaySchedule(schedule) {
+let MidgardDay;
+  let temp2 = document.querySelector("#scheduleTemp").content;
+  let clone2 = temp2.cloneNode(true);
+  
+  console.log(Object.keys(schedule))
+  let areas=Object.keys(schedule);
+ areas.forEach((area)=>{
+  
+ })
+  
+
+  let midgardDays =Object.keys(schedule.Midgard)
+  console.log(midgardDays)
+ midgardDays.forEach((MidgardDay)=>{
+  console.log(MidgardDay)
+ })
+ 
+
+  clone2.querySelector("#day").textContent=schedule.MidgardDay
+
+
+
+
+  document.querySelector("#schedule_container").appendChild(clone2);
+}
+function displaySpots(spot) {
+  let temp3 = document.querySelector("#spots").content;
+
+  let clone = temp3.cloneNode(true);
+
+  clone.querySelector(".area").innerHTML = spot.area;
+  clone.querySelector(".spots").innerHTML = spot.spots;
+
+  clone.querySelector(".available").textContent = spot.available;
+// if(spot.available==0){
+//  temp3.querySelector(".available").style.color= "#ff0000"
+// document.querySelector(".checkbox ").disable=true;
+// }
+// else{
+//  temp3.querySelector(".available").style.color= 
+// }
+  document.querySelector("#availableSpots").appendChild(clone);
+}
 
 let green_camp;
 let pre_book = document.getElementById("pre-book").innerText;
@@ -17,11 +111,7 @@ function normalTicketminus() {
     newCount = 0;
   }
   cmp.innerHTML = newCount;
-  // let normTicket = document.getElementById("normal-price").innerText;
 
-  // total1 = parseFloat(normTicket) * cmp.innerText;
-
-  // updateTotal(total1);
   updateTotalGlobal();
 }
 normalTicketminus();
@@ -39,14 +129,10 @@ greencamp.addEventListener("change", () => {
 });
 poke2.addEventListener("click", normalTicketplus);
 function normalTicketplus() {
-  console.log("Ticket Clicked");
   cmp.innerHTML = parseInt(cmp.innerHTML) + 1;
 
   let normTicket = document.getElementById("normal-price").innerText;
 
-  // total1 = parseFloat(normTicket) * cmp.innerText;
-  // console.log(total1);
-  // updateTotal(total1);
   updateTotalGlobal();
 }
 normalTicketplus();
@@ -55,7 +141,6 @@ var poke01 = document.getElementById("poke01");
 var cmp1 = document.getElementById("counter2");
 poke01.addEventListener("click", vipTicketminus);
 function vipTicketminus() {
-  console.log("minus");
   let newCount = parseInt(cmp1.innerHTML) - 1;
   if (newCount <= 0) {
     newCount = 0;
@@ -80,7 +165,6 @@ function vipTicketplus() {
 vipTicketplus();
 
 calcTotal = parseInt(total1) + parseInt(total2) + parseInt(pre_book);
-console.log(calcTotal);
 // document.getElementById("total").innerHTML = calcTotal;
 
 function updateTotal(newNumber) {
@@ -101,41 +185,39 @@ function updateTotalGlobal() {
   let vipPrice = 1299;
   let normalCount = parseInt(document.getElementById("counter").innerText);
   let vipCount = parseInt(document.getElementById("counter2").innerText);
-  console.log("normalCount, vipCount");
-  console.log(normalCount, vipCount);
+
   let normalCountTotal = normalCount * normalPrice;
   let vipCountTotal = vipCount * vipPrice;
   let summedUp = normalCountTotal + vipCountTotal;
-  console.log("summedUp", summedUp);
+
   updateTotal(summedUp);
 }
 
+document.getElementById("recipient").addEventListener("click", onClick);
+function onClick() {
+  document.querySelector("#popUp").classList.remove("hide");
+  document
+    .querySelector(" #popUp .closingbutton")
+    .addEventListener("click", closeDialog);
 
-// "use strict";
+  function closeDialog() {
+    document.querySelector("#popUp").classList.add("hide");
+    document
+      .querySelector("#popUp .closingbutton")
+      .removeEventListener("click", closeDialog);
+  }
+}
+document.getElementById("checkOut").addEventListener("click", checkOutForm);
+function checkOutForm() {
+  document.querySelector("#popUp2").classList.remove("hide");
+  document
+    .querySelector(" #popUp2 .closingbutton")
+    .addEventListener("click", closeDialog2);
 
-// document.getElementById("recipient").addEventListener("click",onClick);
-// function onClick(){
-
-// document.querySelector('#popUp').classList.remove("hide");  
-//  document.querySelector(" #popUp .closingbutton")
-//   .addEventListener("click", closeDialog);
-
-// function closeDialog() {
-//   document.querySelector("#popUp").classList.add("hide");
-//   document
-//     .querySelector("#popUp .closingbutton")
-//     .removeEventListener("click", closeDialog);
-// }}
-// document.getElementById("checkOut").addEventListener("click",checkOutForm);
-// function checkOutForm(){
-
-// document.querySelector('#popUp2').classList.remove("hide");  
-//  document.querySelector(" #popUp2 .closingbutton")
-//   .addEventListener("click", closeDialog2);
-
-// function closeDialog2() {
-//   document.querySelector("#popUp2").classList.add("hide");
-//   document
-//     .querySelector("#popUp2 .closingbutton")
-//     .removeEventListener("click", closeDialog2);
-// }}
+  function closeDialog2() {
+    document.querySelector("#popUp2").classList.add("hide");
+    document
+      .querySelector("#popUp2 .closingbutton")
+      .removeEventListener("click", closeDialog2);
+  }
+}

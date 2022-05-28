@@ -8,25 +8,55 @@
     <title>Festival</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
+    <!-- <script type="module" src="/main.js" defer></script> -->
+
+
 </head>
 
 <body class="booking-form ">
     <div class="grid md:grid-cols-2 justify-items-center ">
 
 
-        <div class="">
-            <p class="event Name text-white text-3xl font-serif top-12   p-1"> Event name</p>
-            <img class=" h-48 w-96 object-cover md:h-96 md:w-full " src="http://placeimg.com/720/480/nature?76645"
-                alt="Man looking at item at a store">
+        
+
+            <!-- <template> -->
+            <div class="text-white">
+                <h2>Schedule</h2>
+                <main id="schedule_container"></main>
+             
+                    <h4 class="schedule_spots">Spots</h4>
+                    <div class="m-2">
+                            <template id="scheduleTemp">
+                                <div class="">
+                                    <h1 class="area">Area </h1>
+                                    <div>
+                                        <p id="day">Day</p>
+                                    </div>
+                                    <div>
+                                        <div class="act">
+                                            <P>Act</P>
+                                        </div>
+                                        <div class="time">
+                                            <p class="start">start</p>
+                                            <p class="end">end </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </template>
+
+
+
+            </div>
 
         </div>
-        <div class=" shadow-xl shadow-pink-900 rounded px-8 pt-6 pb-8 md:m-12 text-white ">
+        <div class="w-full shadow-xl shadow-pink-500 rounded px-8 pt-6 pb-8  text-white ">
             <h5 class=" buy-ticket  font-bold  text-2xl  md:m-5 text-center ">Buy Ticket</h5>
             <div class="flex felx-col md:flex-row justify-evenly gap-2">
                 <div class="addminus bg-fuchsia-800 md:p-3 rounded-xl md:w-46 md:m-2 ">
                     <div class="p-2  rounded  ">
                         <p class="quan1 font-semibold md:text-xl md:p-2 ">Normal Ticket</p>
-                        <p class="quan1  " >per Ticket -  <span id="normal-price">799 </span> dkk</p>
+                        <p class="quan1  ">per Ticket - <span id="normal-price">799 </span> dkk</p>
                     </div>
                     <div class="quan flex justify-around">
                         <div id="poke1"><button
@@ -41,7 +71,7 @@
                 <div class="addminus bg-yellow-700 md:p-5 rounded-xl md:w-46 md:m-2 ">
                     <div class="md:p-1">
                         <p class="quan1 font-semibold text-xl  p-2">VIP Ticket</p>
-                        <p class="quan1 font-semibold" >per Ticket - <span id="vip-price">1299</span>  dkk </p>
+                        <p class="quan1 font-semibold">per Ticket - <span id="vip-price">1299</span> dkk </p>
                     </div>
                     <div class="quan flex justify-around">
                         <div id="poke01" class="bg-zinc-300 hover:bg-purple-400 text-black  py-2 px-4 rounded-md">
@@ -57,16 +87,35 @@
             </div>
             <div class="flex flex-col md:m-5 text-xl border border-slate-700 rounded-md  ">
                 <div class="m-3 text-center">
-                   <div> Pre Book Camping spot (<span id="pre-book" class="text-yellow-300">99</span> kr) 
-                   </div>
+                    <div> Pre Book Camping spot (<span id="pre-book" class="text-yellow-300">99</span> kr)
+                    </div>
                 </div>
                 <div class="m-2 text-center">
-                    <label for="green-camp">Pay for <span class="text-green-300">Green</span>  Campaign (<span id="green-cam" class="text-yellow-300">249</span> kr)</label>
-                    <input type="checkbox" name="green-camp" id="green-camp" >
+                    <label for="green-camp">Pay for <span class="text-green-300">Green</span> Campaign (<span
+                            id="green-cam" class="text-yellow-300">249</span> kr)</label>
+                    <input type="checkbox" name="green-camp" id="green-camp">
                 </div>
             </div>
+<div class="flex flex-col md:flex-row justify-evenly md:mt-4">
+<div class="select ">
 
+<form action="" >
+  <label for="days" class="text-xl text-zinc-200">Select a day:</label>
+  <select name="days" id="days" class="bg-zinc-600 p-2 border font-semibold text-black" required>
+    <option value=""></option>
 
+    <option value="Monday">Monday</option>
+    <option value="Tuesday">Tuesday</option>
+    <option value="Wednesday">Wednesday</option>
+    <option value="Thursday">Thursday</option>
+    <option value="Friday">Friday</option>
+    <option value="Saturday">Saturday</option>
+    <option value="Sunday">Sunday</option>
+
+  </select>
+ 
+</form>
+</div>
 
             <!-- <h5 class="font-semibold text-xl text-center md:p-3">Setup tent by crew</h5> -->
             <!-- <div class="flex justify-evenly">
@@ -112,48 +161,60 @@
                     </div>
                 </div>
             </div> -->
-            <div>
-                <h5 class="font-semibold text-xl text-center md:p-3">Available Spots</h5>
-                <div id="availableSpots">
+            <div class="md:w-56 bg-white dotted font-semibold ">
+                <p class="flex  text-black text-center  rounded p-1 text-xl "> Your Total -><span id="total"
+                        class=""> 000</span> kr </p>
+            </div>
+
+        </div>
+            <h5 class="font-semibold text-xl text-center md:p-3">Available Spots</h5>
+
+            <div id="availableSpots" class="grid grid-cols-2 bg-zinc-800 ">
+
                 <template id="spots">
-                <div class="bg-fuchsia-300 p-3 m-3 text-xl text-slate-900 flex justify-evenly">
-                    <p class="area">Area</p>
-                    <p class="spots">spots</p>
-                    <p class="available">available</p>
-                    <div class="md:flex md:items-center">
-                        <label class=" block  ">
-                            <span>
-                                Select this area
-                            </span>
-                            <input class="mr-2 leading-tight" type="checkbox"> </label>
+                    <div class=" p-3 m-3  text-slate-200 ">
+                        <div class="flex justify-evenly">
+
+                            <p class="area text-xl text-rose-400">Area</p>
+                        </div>
+                        <div class="flex  flex-col ">
+                            <div class="flex justify-evenly ">
+                                <h3>Spots-</h3>
+                                <p class="spots text-yellow-200 ">spots</p>
+                            </div>
+                            <div class="flex m-2">
+                                <h5 class="">Spots available-</h5>
+                                <p class="available text-yellow-200">available</p>
+                            </div>
+
+                        </div>
+                        <div class="md:flex md:items-center">
+                            <label class=" checkbox block  " name="check">
+                                <span>
+                                    Select this area
+                                </span>
+                                <input class="mr-2 leading-tight checkbox " name="check" type="checkbox"> </label>
+                        </div>
                     </div>
-                </div>
-            </template>
-
-</div>
+                </template>
 
             </div>
-            <div class="absolute  top-6 right-12">
-                <p class="bg-slate-600  p-2 text-center w-36 rounded m-3 p-2 text-xl "> Your Total : <span id="total" class="text-yellow-300">000</span> kr </p>
-            </div>
+
+
+
 
             <div class="flex   justify-evenly  p-4">
-              
-           
+
+
                 <div class="bg-orange-300  rounded cursor-pointer ">
                     <p class=" text-slate-800 text-md font-bold text-center p-4" id="recipient">Next Step</p>
-                  
+
                 </div>
-<!--                
-                <div class="bg-slate-300 rounded-xl cursor-pointer " id="checkOut">
-                    <p class="text-black text-center p-4">Checkout</p>
-                </div> -->
+
+
             </div>
             <div>
-                <!-- <form action="/booking.html">
-                    <button type="submit" action="booking1.html" class="bg-green-800 text-white p-2 rounded-md m-3">Get
-                        Ticket</button>
-                </form> -->
+
 
             </div>
         </div>
@@ -245,22 +306,22 @@
                 </form>
                 <div class="text-center text-white p-3" id="checkOut">
                     <!-- <form action="#popUp2"> -->
-                    <button class="checkoutform bg-purple-700 p-3 rounded text-center justify-items-center">Next
+                    <button class="checkoutform bg-purple-700 p-3 rounded text-center justify-items-center ">Next
                         Step</button>
                 </div>
             </article>
         </div>
     </div>
 
-    <div id="popUp2" class="modalpop2 hide model2 rounded-2xl m-4 shadow-2xl shadow-white">
-        <div class="dialogpay ">
+    <div id="popUp2" class="modalpop2 hide model2 rounded-2xl m-3 shadow-2xl shadow-white ">
+        <div class="dialogpay m-3">
             <button class="closingbutton">&#10006</button>
 
 
-            <div class="container bg-gray-900 text-white">
+            <div class=" text-white w-96 p-4 rounded-xl ">
 
                 <h1 class="text-yellow-500 text-xl">Payment form</h1>
-                <div class="flex flex-col md:flex-row gap-2 ">
+                <div class="flex flex-col md:flex-row  ">
                     <span class="fieldRow">
                         <label for="name">First name</label>
                         <input id="name" type="name" placeholder=""
@@ -306,8 +367,8 @@
 
                 <div class="text-center text-white p-3">
                     <form action="ticket.html">
-                    <button class="checkoutform bg-purple-700 p-3 rounded text-center justify-items-center">Pay
-                        Now</button></form>
+                        <button class="checkoutform bg-purple-700 p-3 rounded text-center justify-items-center">Pay
+                            Now</button></form>
                 </div>
             </div>
 
@@ -316,9 +377,8 @@
         </div>
     </div>
 
-
     <script src="booking.js"></script>
-    <script type="module" src="/main.js"></script>
+
 </body>
 
 

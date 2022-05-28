@@ -4,13 +4,16 @@
 @tailwind utilities;
 
 .contain{
-    width: 90%;
-    padding: 20px;
-    margin: 100px auto;
-    background: #ddd;
-    display: flex;
+    width: 100%;
+    height: 100%;
+    /* padding: 20px; */
+    /* margin: 100px auto; */
+    /* background: #ddd; */
+    display: inline-flex;
+    flex-wrap: no-wrap;
     flex-direction: row;
-    justify-content: center;
+    gap: 0;
+    /* justify-content: center; */
 }
 
 .box{
@@ -31,7 +34,8 @@ transition: 1s;
 }
 .textline {
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
+    color: #bda6b7e2
   }
 
 
@@ -60,6 +64,16 @@ font-family: 'Source Serif Pro', serif; */
     width: 400px;
     margin: 10px 0;
 }
+.picture_band{
+  position: relative;
+  /* opacity: 0.5; */
+}
+.info{
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  background-color: rgba(0, 0, 0, .6);
+}
   .col2 {
     width: 210px;
     float: left;
@@ -77,17 +91,33 @@ font-family: 'Source Serif Pro', serif; */
   .booking-form{
     background-color: #1f1e1e;
   }
-  body{
-    background-color: white;
-  }
+ 
   .neon{
     font-family: 'Macondo', cursive;
-    color:rgb(168, 161, 168);
+    color:rgb(219, 217, 219);
     letter-spacing: 0.1em;
     font-weight: 600;
-    text-shadow:0 0 10px #f24acb,
-    0 0 10px #a71885,
+    text-shadow:0 0 5px #4a74f2,
+    0 0 1px #a71885,
     0 0 10px #a71885;
+    animation: glow 1s infinite;
+  }
+  @keyframes glow{
+    0%{
+      text-shadow:0 0 5px #293d7e,
+    0 0 1px #a71885,
+    0 0 10px #a71885;
+    }
+    50%{
+      text-shadow:0 0 20px #6a0b37,
+      0 0 10px #a71885,
+      0 0 10px #18a739;
+    }
+    100%{
+      text-shadow:0 0 5px #600717,
+      0 0 1px #a71885,
+      0 0 10px #a71885;
+    }
   }
 /*   
    .music_notes1{
@@ -243,7 +273,117 @@ button.closingbutton {
     pointer-events: all;
 }
 
-#artist{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 4fr));
+.elementcontainer{
+  display: flex;
+ flex-direction: row ;
+justify-content: center;
+align-items: center;
+ 
+ 
+  overflow: scroll;
+  margin: 6em;
+}
+.getTicket{
+  display: block;
+  margin: 0 auto ;
+ 
+}
+
+
+
+/* burgermenu */
+ /* burger_menu */
+ #menu {
+  z-index: 2;
+}
+
+#menu-bar {
+  width: 45px;
+  height: 40px;
+  /* margin: 0 0 20px 20px; */
+  cursor: pointer;
+ 
+
+}
+
+.bar {
+  height: 5px;
+  width: 100%;
+  background-color: white;
+  display: block;
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+#bar1 {
+  transform: translateY(-4px);
+}
+
+#bar3 {
+  transform: translateY(4px);
+}
+
+.nav {
+  transition: 0.3s ease;
+  display: none;
+}
+
+.nav ul {
+  padding: 0 22px;
+}
+
+.nav li {
+  list-style: none;
+  padding: 12px 0;
+}
+
+.nav li a {
+  color: rgb(51, 50, 50);
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.nav li a:hover {
+  font-weight: bold;
+}
+
+.menu-bg, #menu {
+
+  position: absolute;
+}
+
+.menu-bg {
+  z-index: 1;
+  width: 0;
+  height: 0;
+  margin: 30px 0 20px 20px;
+  background: rgba(205, 198, 198, 0.8);
+  border-radius: 5%;
+  transition: 0.2s ease;
+}
+
+.change {
+  display: block;
+}
+
+.change .bar {
+  background-color: white;
+}
+
+.change #bar1 {
+  transform: translateY(4px) rotateZ(-45deg);
+}
+
+.change #bar2 {
+  opacity: 0;
+}
+
+.change #bar3 {
+  transform: translateY(-6px) rotateZ(45deg);
+}
+
+.change-bg {
+  width: 520px;
+  height: 460px;
+  transform: translate(-60%,-30%);
 }
