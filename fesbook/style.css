@@ -6,16 +6,33 @@
 .contain{
     width: 100%;
     height: 100%;
-    /* padding: 20px; */
-    /* margin: 100px auto; */
-    /* background: #ddd; */
+  
     display: inline-flex;
     flex-wrap: no-wrap;
     flex-direction: row;
     gap: 0;
-    /* justify-content: center; */
 }
-
+.imgcontainer{
+  position: relative; 
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+ 
+}
+.imgcontainer::before {    
+  content: "";
+  background-image: url('/public/1x/Artboard 1.png');
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.7;
+}
 .box{
     width: 250px;
 margin: 0px 10px;
@@ -94,71 +111,36 @@ font-family: 'Source Serif Pro', serif; */
  
   .neon{
     font-family: 'Macondo', cursive;
-    color:rgb(219, 217, 219);
+    color:rgb(57, 54, 54);
     letter-spacing: 0.1em;
     font-weight: 600;
-    text-shadow:0 0 5px #4a74f2,
-    0 0 1px #a71885,
-    0 0 10px #a71885;
-    animation: glow 1s infinite;
+    text-shadow:0 0 5px #d5d1d1,
+    0 0 1px #aeabab,
+    0 0 10px #848181;
+    animation: glow 3s infinite;
+    position: relative;
+    /* color: #ffffff;   */
+    font-size: 10rem;
+    line-height: 0.9;
+    text-align: center;
   }
   @keyframes glow{
     0%{
-      text-shadow:0 0 5px #293d7e,
-    0 0 1px #a71885,
-    0 0 10px #a71885;
+      text-shadow:0 0 5px #eaebee,
+    0 0 1px #1c1b1c,
+    0 0 10px #0c0c0c;
     }
     50%{
-      text-shadow:0 0 20px #6a0b37,
+      text-shadow:0 0 20px #d2d1d2,
       0 0 10px #a71885,
-      0 0 10px #18a739;
+      0 0 10px #121212;
     }
     100%{
-      text-shadow:0 0 5px #600717,
+      text-shadow:0 0 5px #fffbfb,
       0 0 1px #a71885,
       0 0 10px #a71885;
     }
   }
-/*   
-   .music_notes1{
-    z-index: 1;
-    top: 18rem;
-    animation: animate 2s infinite ;
-
-   }
-   @keyframes animate{
-0%{
-  transform: translateX(3rem)scale(0.2);
-
-}
-80%{
-opacity: 0.5;
-}
-100%{
-  opacity: 0;
-}
-   }
-   @keyframes animate2{
-    0%{
-      transform: translateX(-3rem)scale(0.2);
-    
-    }
-    80%{
-    opacity: 0.5;
-    }
-    100%{
-      opacity: 0;
-    }
-       }
-
-   .music_notes2{
-    z-index: 1;
-    top: 18rem;
-    right: 12rem;
-  transform: scaleX(-1);
-    animation: animate2 2s infinite ;
-
-   } */
  .left-guitar{
   transform: rotate(-20deg);
   z-index: 0;
@@ -224,6 +206,9 @@ button.closingbutton {
     background-color: white;
     width: 500px;
     max-width: 80%;
+}
+h2{
+  background-color: #ff6978;
 }
 
 .modal.active {
@@ -291,6 +276,7 @@ align-items: center;
 
 
 
+
 /* burgermenu */
  /* burger_menu */
  #menu {
@@ -300,7 +286,7 @@ align-items: center;
 #menu-bar {
   width: 45px;
   height: 40px;
-  /* margin: 0 0 20px 20px; */
+  margin: 0 0 20px 20px;
   cursor: pointer;
  
 
@@ -309,7 +295,7 @@ align-items: center;
 .bar {
   height: 5px;
   width: 100%;
-  background-color: white;
+  background-color: rgb(33, 32, 32);
   display: block;
   border-radius: 5px;
   transition: 0.3s ease;
@@ -338,7 +324,7 @@ align-items: center;
 }
 
 .nav li a {
-  color: rgb(51, 50, 50);
+  color: rgb(46, 44, 44);
   font-size: 20px;
   text-decoration: none;
 }
@@ -350,6 +336,7 @@ align-items: center;
 .menu-bg, #menu {
 
   position: absolute;
+  top: 0;
 }
 
 .menu-bg {
@@ -357,7 +344,7 @@ align-items: center;
   width: 0;
   height: 0;
   margin: 30px 0 20px 20px;
-  background: rgba(205, 198, 198, 0.8);
+  background: rgba(174, 172, 172, 0.2);
   border-radius: 5%;
   transition: 0.2s ease;
 }
@@ -367,7 +354,7 @@ align-items: center;
 }
 
 .change .bar {
-  background-color: white;
+  background-color: rgb(51, 50, 50);
 }
 
 .change #bar1 {
@@ -391,14 +378,15 @@ align-items: center;
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background-color: #f1f1f15d;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
   background-color: inherit;
-  float: left;
-  border: none;
+
+  border: 2px solid #77485dbb;
+  border-radius: 10%;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
@@ -408,18 +396,23 @@ align-items: center;
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: rgba(173, 175, 176, 0.51);
 }
 
 /* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
+.tab button:active {
+  background-color: rgb(29, 5, 57);
 }
 
 /* Style the tab content */
 #content1, #content2, #content3 {
   display: none;
-  padding: 6px 12px;
+  /* padding: 6px 12px; */
   border: 1px solid #ccc;
   border-top: none;
+  color: white;
+}
+.logo{
+display: flex;
+justify-content: flex-end;
 }

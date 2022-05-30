@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="style.css">
    
 </head>
-<body class="bg-zinc-900">
+<body class=" 
+">
+<header>
+ 
 
-<header class="flex flex-row ">
-  <!-- <div><img src="logo.png" alt="logo" class="w-20"></div> -->
-  <div id="menu" class="md:m-5 m-3 " >
+ 
+<div class="logo">
+  <img src="logo.png" alt="logo" class="w-24 ">
+  </div>
+<div class="menu-bg" id="menu-bg"></div>
+  <div id="menu" class=" m-3 " >
     <div id="menu-bar">
       <div id="bar1" class="bar"></div>
       <div id="bar2" class="bar"></div>
@@ -22,24 +28,23 @@
     <nav class="nav" id="nav">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#project">Events</a></li>
         <li><a href="booking1.html">Get Ticket</a></li>
       </ul>
     </nav> 
-  </div>
-  
-  <div class="menu-bg" id="menu-bg"></div>
+</div>
 </header>
-<div class="title flex  md:flex-row md:justify-items-center justify-evenly	 rounded-2xl shadow-gray-700 text-center shadow-md   md:m-12 md:p-12">
+
+
+<div class="title flex  md:flex-row md:justify-items-center justify-evenly	 rounded-2xl  text-center shadow-md    ">
       
   
 
-  <div> <img src="./public/SVG/guitar.svg" alt="" class="left-guitar w-44 md:w-full justify-self-start h-80 "></div>
-  <div><p class="neon md:text-7xl text-4xl">Music Festival</p></div>
+  <!-- <div> <img src="./public/SVG/guitar.svg" alt="" class="left-guitar w-44 md:w-full justify-self-start h-80 "></div> -->
+  <div class="imgcontainer "><p class="neon   p-3">Festival Beat</p></div>
 
- 
-  <div> <img src="./public/SVG/guitar.svg" alt="" class="right-guitar w-44 md:w-full  h-80 "></div>
-<div></div>
+<!--  
+  <div> <img src="/public/1x/Artboard 1.png" alt="" class=" w-44 md:w-full  h-80 "></div> -->
+
 
  </div>
 
@@ -65,8 +70,8 @@
 
 </div>
 
-<div class="textline text-white text-5xl m-5">
-    <h2 class="quote">Its TiMe tO AcT Book iT lOVe iT</h2>
+<div class="textline text-rose-700 text-5xl m-5">
+    <h1 class="quote">Its TiMe tO AcT Book iT lOVe iT</h1>
     <h3>EnJOy tHe ViBe</h3>
 </div>
 <form action="booking1.html">
@@ -115,65 +120,7 @@ Get Ticket</button>
     </div>
   </div>
 </template>
-<div class="schedule">
-  <div class="tab">
-      <button id="tablinks1">Jotunheim</button>
-      <button id="tablinks2" >Midgard</button>
-      <button id="tablinks3">Vanaheim</button>
-  </div>
-  <div class="Jotunheim" id="content1">
-  </div>
 
-  <div class="Midgard" id="content2">
-
-  </div>
-
-
-  <div class="Vanaheim" id="content3">
-
-  </div>
-</div>
-
-<div class="time" hidden>
-  <h2>Monday:
-      <div id="mon">
-          <ul style="list-style-type: circle"></ul>
-      </div>
-  </h2>
-  <h2>Tuesday:
-      <div id="tue">
-          <ul style="list-style-type: circle"></ul>
-
-      </div>
-  </h2>
-  <h2>Wednesday:
-      <div id="wed">
-          <ul style="list-style-type: circle"></ul>
-
-      </div>
-  </h2>
-  <h2>Thursday:
-      <div id="thu">
-          <ul style="list-style-type: circle"></ul>
-
-      </div>
-  </h2>
-  <h2>Friday:
-      <div id="fri">
-          <ul style="list-style-type: circle"></ul>
-      </div>
-  </h2>
-  <h2>Saturday:
-      <div id="sat">
-          <ul style="list-style-type: circle"></ul>
-      </div>
-  </h2>
-  <h2>Sunday:
-      <div id="sun">
-          <ul style="list-style-type: circle"></ul>
-      </div>
-  </h2>
-</div>
 <script type="module" src="/main.js"></script>
 </body>
 </html>

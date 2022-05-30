@@ -1,19 +1,22 @@
+// import { menuOnClick } from 'main.js'
+
+let pre_book;
 let scheduleJson;
 let spotsJson;
 window.addEventListener("DOMContentLoaded", init);
 
 async function init() {
   const schedulePromise = await fetch(
-    "https://festevent-book.herokuapp.com/schedule",
-    {
-      method: "GET",
-    }
+    "https://festevent-book.herokuapp.com/schedule"
   )
     .then((res) => res.json())
-    .then((s) => {
-      scheduleJson = s;
-      displaySchedule(scheduleJson)
+    .then((d) => {
+        scheduleJson = d;
+        displaySchedule();
     });
+  
+  console.log(scheduleJson);
+  
 
   const availableSpots = await fetch(
     "https://festevent-book.herokuapp.com/available-spots",
@@ -30,17 +33,97 @@ async function init() {
     });
 }
 
+function displaySchedule() {
+  // console.log("hello" , scheduleJson["Jotunheim"]);
+  let temp = document.querySelector(".time");
+  var keys = Object.keys(scheduleJson);
+  let content1 = document.querySelector("#content1");
+  let content2 = document.querySelector("#content2");
+  let content3 = document.querySelector("#content3");
+  content1.style.overflow = "scroll";
+  content2.style.overflow = "scroll";
 
-function displaySchedulesList(scheduless) {
-  scheduless.forEach((schedules)=>{
-    schedules.forEach((schedule) => {
-      schedule.forEach((data1)=>{
+  content3.style.overflow = "scroll";
 
-      })
-    });
+  content1.style.height = "50vw";
+  content2.style.height = "50vw";
+  content3.style.height = "50vw";
+
+  document.querySelector("#tablinks1").addEventListener("click", tab)
+   function tab () {
+      if (content1.style.display === "block") {
+          content1.style.display = "none";
+
+          document.querySelector("#tablinks1").style.backgroundColor=""
+      } else {
+          content1.style.display = "block";
+          document.querySelector("#tablinks1").style.backgroundColor="#ffffff"
+          document.querySelector("#tablinks2").style.backgroundColor=""
+          document.querySelector("#tablinks3").style.backgroundColor=""
+                    content1.style.overflow = "scroll";
+
+      }
+      content2.style.display = "none"
+      content3.style.display = "none"
+  }
+tab()
+  document.querySelector("#tablinks2").addEventListener("click", function () {
+      if (content2.style.display === "block") {
+          content2.style.display = "none";
+          document.querySelector("#tablinks2").style.backgroundColor=""
+      } else {
+          content2.style.display = "block";
+          document.querySelector("#tablinks2").style.backgroundColor="#ffffff"
+          document.querySelector("#tablinks3").style.backgroundColor=""
+          document.querySelector("#tablinks1").style.backgroundColor=""
+      }
+      content1.style.display = "none"
+      content3.style.display = "none"
+
+  })
+  document.querySelector("#tablinks3").addEventListener("click", function () {
+      if (content3.style.display === "block") {
+          content3.style.display = "none";
+          document.querySelector("#tablinks3").style.backgroundColor=""
+      } else {
+          content3.style.display = "block";
+          document.querySelector("#tablinks3").style.backgroundColor="#ffffff"
+          document.querySelector("#tablinks2").style.backgroundColor=""
+          document.querySelector("#tablinks1").style.backgroundColor=""
+      }
+      content1.style.display = "none"
+      content2.style.display = "none"
+
+  })
+  keys.forEach((key) => {
+      let clone = temp.cloneNode(true)
+      let data = scheduleJson[key];
+
+      Object.keys(data).forEach((day) => {
+    
+          let daydata = data[day];
+          daydata.forEach((time) => {
+              let list = document.createElement("li");
+          list.appendChild(
+              document.createTextNode(
+                      "Start: " + time["start"] + " "+ " End :" + time["end"] + " Act : " + time["act"]
+                  )
+              )
+          
+             let listelem= clone.querySelector("#" + day + " ul").appendChild(list);
+            //  listelem.style.border="0.4px solid"
+            //  listelem.style.fontSize="1.2em"
+
+          });
+       
+      });
+     
+      clone.removeAttribute("hidden")
+      document.querySelector("." + key).appendChild(clone)
   });
-
 }
+
+
 function displaySpotList(spots) {
 
   spots.forEach((spot) => {
@@ -49,32 +132,8 @@ function displaySpotList(spots) {
   });
 }
 
-function displaySchedule(schedule) {
-let MidgardDay;
-  let temp2 = document.querySelector("#scheduleTemp").content;
-  let clone2 = temp2.cloneNode(true);
   
-  console.log(Object.keys(schedule))
-  let areas=Object.keys(schedule);
- areas.forEach((area)=>{
-  
- })
-  
-
-  let midgardDays =Object.keys(schedule.Midgard)
-  console.log(midgardDays)
- midgardDays.forEach((MidgardDay)=>{
-  console.log(MidgardDay)
- })
  
-
-  clone2.querySelector("#day").textContent=schedule.MidgardDay
-
-
-
-
-  document.querySelector("#schedule_container").appendChild(clone2);
-}
 function displaySpots(spot) {
   let temp3 = document.querySelector("#spots").content;
 
@@ -95,7 +154,7 @@ function displaySpots(spot) {
 }
 
 let green_camp;
-let pre_book = document.getElementById("pre-book").innerText;
+ pre_book = document.getElementById("pre-book").innerText;
 // let green_camp= document.getElementById("green-cam").value;
 
 let total1;
@@ -164,7 +223,7 @@ function vipTicketplus() {
 
 vipTicketplus();
 
-calcTotal = parseInt(total1) + parseInt(total2) + parseInt(pre_book);
+let calcTotal = parseInt(total1) + parseInt(total2) + parseInt(pre_book);
 // document.getElementById("total").innerHTML = calcTotal;
 
 function updateTotal(newNumber) {
@@ -195,24 +254,34 @@ function updateTotalGlobal() {
 
 document.getElementById("recipient").addEventListener("click", onClick);
 function onClick() {
-  document.querySelector("#popUp").classList.remove("hide");
-  document
-    .querySelector(" #popUp .closingbutton")
-    .addEventListener("click", closeDialog);
+ 
 
+ 
+      document.querySelector("#popUp").classList.remove("hide");
+      document
+        .querySelector(" #popUp .closingbutton")
+        .addEventListener("click", closeDialog);
+    
+ 
+ 
   function closeDialog() {
     document.querySelector("#popUp").classList.add("hide");
     document
       .querySelector("#popUp .closingbutton")
       .removeEventListener("click", closeDialog);
   }
+
 }
 document.getElementById("checkOut").addEventListener("click", checkOutForm);
 function checkOutForm() {
-  document.querySelector("#popUp2").classList.remove("hide");
+ 
+    document.querySelector("#popUp2").classList.remove("hide");
+   
+  
   document
-    .querySelector(" #popUp2 .closingbutton")
-    .addEventListener("click", closeDialog2);
+  .querySelector(" #popUp2 .closingbutton")
+  .addEventListener("click", closeDialog2);
+
 
   function closeDialog2() {
     document.querySelector("#popUp2").classList.add("hide");
@@ -220,4 +289,13 @@ function checkOutForm() {
       .querySelector("#popUp2 .closingbutton")
       .removeEventListener("click", closeDialog2);
   }
+}
+document.getElementById("menu").addEventListener("click", menuOnClick);;
+
+
+
+ function menuOnClick() {
+  document.getElementById("menu-bar").classList.toggle("change");
+  document.getElementById("nav").classList.toggle("change");
+  document.getElementById("menu-bg").classList.toggle("change-bg");
 }
