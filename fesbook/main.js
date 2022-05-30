@@ -2,7 +2,7 @@
 
 let lineup = [];
 let bandJson;
-
+let scheduleJson;
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -26,7 +26,17 @@ async function start() {
 
    
 
-console.log(bandJson);
+const schedulePromise = await fetch(
+  "https://festevent-book.herokuapp.com/schedule"
+)
+  .then((res) => res.json())
+  .then((d) => {
+      scheduleJson = d;
+      displaySchedule();
+  });
+
+console.log(scheduleJson);
+
 
 
 }
@@ -48,7 +58,7 @@ copy.querySelector(".area").textContent=spot.area;
 }
 // Fetch Camping spots
 
-start();
+
 // //................ Fetch all done
 
 
@@ -85,6 +95,63 @@ function displayLineup() {
         document.querySelector(".elementcontainer").appendChild(clone);
         
     });
+}
+function displaySchedule() {
+  // console.log("hello" , scheduleJson["Jotunheim"]);
+  let temp = document.querySelector(".time");
+  var keys = Object.keys(scheduleJson);
+  let content1 = document.querySelector("#content1");
+  let content2 = document.querySelector("#content2");
+  let content3 = document.querySelector("#content3");
+
+  document.querySelector("#tablinks1").addEventListener("click", function () {
+      if (content1.style.display === "block") {
+          content1.style.display = "none";
+      } else {
+          content1.style.display = "block";
+      }
+      content2.style.display = "none"
+      content3.style.display = "none"
+  })
+  document.querySelector("#tablinks2").addEventListener("click", function () {
+      if (content2.style.display === "block") {
+          content2.style.display = "none";
+      } else {
+          content2.style.display = "block";
+      }
+      content1.style.display = "none"
+      content3.style.display = "none"
+
+  })
+  document.querySelector("#tablinks3").addEventListener("click", function () {
+      if (content3.style.display === "block") {
+          content3.style.display = "none";
+      } else {
+          content3.style.display = "block";
+      }
+      content1.style.display = "none"
+      content2.style.display = "none"
+
+  })
+  keys.forEach((key) => {
+      let clone = temp.cloneNode(true)
+      let data = scheduleJson[key];
+
+      Object.keys(data).forEach((day) => {
+          let daydata = data[day];
+          daydata.forEach((time) => {
+              let list = document.createElement("li");
+              list.appendChild(
+                  document.createTextNode(
+                      "Start: " + time["start"] + " End :" + time["end"] + " Act : " + time["act"]
+                  )
+              );
+              clone.querySelector("#" + day + " ul").appendChild(list)
+          });
+      });
+      clone.removeAttribute("hidden")
+      document.querySelector("." + key).appendChild(clone)
+  });
 }
 
 
