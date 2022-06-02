@@ -7,28 +7,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Festival</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 
 
 </head>
 
-<header>
+<header class="flex flex-col md:flex-row justify-around">
  
 
  
-    <div class="logo">
-      <img src="logo.png" alt="logo" class="w-24 ">
-      </div>
-    <div class="menu-bg" id="menu-bg"></div>
-      <div id="menu" class=" m-3 " >
-        <div id="menu-bar">
-          <div id="bar1" class="bar"></div>
-          <div id="bar2" class="bar"></div>
-          <div id="bar3" class="bar"></div>
-        </div>
-        <nav class="nav" id="nav">
-          <ul>
+    <div class="logo m-auto p-0 md:m-0 md:p-0">
+        <a href="index.html"> <img src="logo.png" alt="logo" class="md:w-24 w-24 "></a>
+    </div>
+    <div class="menu-bg " id="menu-bg"></div>
+      <div id="menu" class=" m-4 " >
+      
+        <nav class="flex  text-white" id="nav">
+          <ul class="flex gap-5 md:gap-9 justify-around md:justify-evenly md:text-xl">
             <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">Festival App</a></li>
+    
             <li><a href="booking1.html">Get Ticket</a></li>
           </ul>
         </nav> 
@@ -39,66 +37,67 @@
     <div class="grid md:grid-cols-2 justify-items-center ">
 
         <div class="schedule">
-            <div class="tab">
+            <h1 class="text-4xl text-white text-center m-2 ">Schedule</h1>
+            <div class="tab bg-neutral-400">
                 <button id="tablinks1" class="">Jotunheim</button>
-                <button id="tablinks2" >Midgard</button>
+                <button id="tablinks2">Midgard</button>
                 <button id="tablinks3">Vanaheim</button>
             </div>
             <div class="Jotunheim" id="content1">
             </div>
-          
+
             <div class="Midgard" id="content2">
-          
+
             </div>
-          
-          
+
+
             <div class="Vanaheim" id="content3">
-          
+
             </div>
-          </div>
-          
-          <div class="time " hidden>
-            <h2 class="text-xl m-2 text-center">Monday:   </h2>
-                <div id="mon" class="m-5">
-                    <ul  ></ul>
-                </div>
-         
+        </div>
+
+        <div class="time " hidden>
+            <h2 class="text-xl m-2 text-center">Monday: </h2>
+            <div id="mon" class="m-5">
+                <ul class="grid md:grid-cols-3 gap-5"></ul>
+            </div>
+
             <h2 class="text-xl  m-2 text-center">Tuesday: </h2>
-                <div id="tue" class="m-5">
-                    <ul ></ul>
-          
-                </div>
-           
-            <h2 class="text-xl  m-2 text-center">Wednesday:   </h2>
-                <div id="wed" class="m-5">
-                    <ul ></ul>
-          
-                </div>
-         
-            <h2 class="text-xl  m-2 text-center">Thursday:   </h2>
-                <div id="thu" class="m-5">
-                    <ul ></ul>
-          
-                </div>
-         
+            <div id="tue" class="m-5">
+                <ul  class="grid md:grid-cols-3 gap-5"></ul>
+
+            </div>
+
+            <h2 class="text-xl  m-2 text-center">Wednesday: </h2>
+            <div id="wed" class="m-5">
+                <ul  class="grid md:grid-cols-3 gap-5"></ul>
+
+            </div>
+
+            <h2 class="text-xl  m-2 text-center">Thursday: </h2>
+            <div id="thu" class="m-5">
+                <ul  class="grid md:grid-cols-3 gap-5"></ul>
+
+            </div>
+
             <h2 class="text-xl  m-2 text-center">Friday: </h2>
-                <div id="fri" class="m-5">
-                    <ul ></ul>
-                </div>
-           
+            <div id="fri" class="m-5">
+                <ul  class="grid md:grid-cols-3 gap-5"></ul>
+            </div>
+
             <h2 class="text-xl  m-2 text-center">Saturday:</h2>
-                <div id="sat" class="m-5">
-                    <ul ></ul>
-                </div>
-            
-            <h2 class="text-xl  m-2 text-center">Sunday:  </h2>
-                <div id="sun" class="m-5">
-                    <ul ></ul>
-                </div>
-          
-          </div>
+            <div id="sat" class="m-5">
+                <ul  class="grid md:grid-cols-3 gap-5"></ul>
+            </div>
+
+            <h2 class="text-xl  m-2 text-center">Sunday: </h2>
+            <div id="sun" class="m-5">
+                <ul  class="grid md:grid-cols-3 gap-5"></ul>
+            </div>
+
+        </div>
         <div class="w-full shadow-xl shadow-pink-500 rounded px-8 pt-6 pb-8  text-white ">
-            <h5 class=" buy-ticket  font-bold  text-2xl  md:m-5 text-center ">Buy Ticket</h5>
+            <h5 class=" buy-ticket  font-bold  text-2xl  md:m-5">Buy Ticket</h5>
             <div class="flex felx-col md:flex-row justify-evenly gap-2">
                 <div class="addminus bg-fuchsia-800 md:p-3 rounded-xl md:w-46 md:m-2 ">
                     <div class="p-2  rounded  ">
@@ -133,39 +132,39 @@
                 </div>
             </div>
             <div class="flex flex-col md:m-5 text-xl border border-slate-700 rounded-md  ">
-                <div class="m-3 text-center">
+                <div class="m-3 ">
                     <div> Pre Book Camping spot (<span id="pre-book" class="text-yellow-300">99</span> kr)
                     </div>
                 </div>
-                <div class="m-2 text-center">
+                <div class="m-2 ">
                     <label for="green-camp">Pay for <span class="text-green-300">Green</span> Campaign (<span
                             id="green-cam" class="text-yellow-300">249</span> kr)</label>
                     <input type="checkbox" name="green-camp" id="green-camp">
                 </div>
             </div>
-<div class="flex flex-col md:flex-row justify-evenly md:mt-4">
-<div class="select ">
+            <form action="#popUp" id="form1">
+                <div class="flex flex-col md:flex-row justify-evenly md:mt-4">
+                    <div class="select ">
 
-<form action="" >
-  <label for="days" class="text-xl text-zinc-200">Select a day:</label>
-  <select name="days" id="days" class="bg-zinc-600 p-2 border font-semibold text-white" required>
-    <option value="Day">Day</option>
 
-    <option value="Monday">Monday</option>
-    <option value="Tuesday">Tuesday</option>
-    <option value="Wednesday">Wednesday</option>
-    <option value="Thursday">Thursday</option>
-    <option value="Friday">Friday</option>
-    <option value="Saturday">Saturday</option>
-    <option value="Sunday">Sunday</option>
+                        <label for="days" class="text-xl text-zinc-200">Select a day:</label>
+                        <select name="days" id="days" class="bg-zinc-600 p-2 border font-semibold text-white" required>
 
-  </select>
- 
-</form>
-</div>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
 
-            <!-- <h5 class="font-semibold text-xl text-center md:p-3">Setup tent by crew</h5> -->
-            <!-- <div class="flex justify-evenly">
+                        </select>
+
+
+                    </div>
+
+                    <!-- <h5 class="font-semibold text-xl text-center md:p-3">Setup tent by crew</h5> -->
+                    <!-- <div class="flex justify-evenly">
                 <div>
                     <div class="addminus p-3 bg-neutral-700 rounded-xl">
                         <div class="m-6 ">
@@ -208,173 +207,181 @@
                     </div>
                 </div>
             </div> -->
-            <div class="md:w-56 bg-white dotted font-semibold ">
-                <p class="flex  text-black text-center  rounded p-1 text-xl "> Your Total -><span id="total"
-                        class=""> 000</span> kr </p>
-            </div>
-
-        </div>
-            <h5 class="font-semibold text-xl text-center md:p-3">Available Spots</h5>
-
-            <div id="availableSpots" class="grid grid-cols-2 bg-zinc-800 ">
-
-                <template id="spots">
-                    <div class=" p-3 m-3  text-slate-200 ">
-                        <div class="flex justify-evenly">
-
-                            <p class="area text-xl text-rose-400">Area</p>
-                        </div>
-                        <div class="flex  flex-col ">
-                            <div class="flex ">
-                                <h3>Spots-</h3>
-                                <p class="spots text-yellow-200 ml-3">spots</p>
-                            </div>
-                            <div class="flex m-2">
-                                <h5 class="">Spots available-</h5>
-                                <p class="available text-yellow-200">available</p>
-                            </div>
-
-                        </div>
-                        <div class="md:flex md:items-center">
-                            <label class=" checkbox block  " name="check" required>
-                                <span>
-                                    Select this area
-                                </span>
-                                <input class="mr-2 leading-tight checkbox " name="check" type="checkbox"> </label>
-                        </div>
+                    <div class="md:w-56 bg-white dotted font-semibold ">
+                        <p class="flex  text-black text-center  rounded p-1 text-xl "> Your Total: <span id="total"
+                                class="pl-3"> 000</span>kr  </p>
                     </div>
-                </template>
 
-            </div>
+                </div>
+                <h5 class="font-semibold text-xl md:p-3">Available Spots</h5>
+
+                <div id="availableSpots" class="grid grid-cols-2 bg-zinc-800 ">
+
+                    <template id="spots">
+                        <div class=" p-3 m-3  text-slate-200 ">
+                            <div class="flex ">
+
+                                <p class="area text-xl text-rose-400">Area</p>
+                            </div>
+                            <div class="flex  flex-col ">
+                                <div class="flex ">
+                                    <h3>Spots-</h3>
+                                    <p class="spots text-yellow-200 ml-3">spots</p>
+                                </div>
+                                <div class="flex ">
+                                    <h5 class="">Spots available-</h5>
+                                    <p class="available text-yellow-200">available</p>
+                                </div>
+
+                            </div>
+                            <div class="md:flex md:items-center">
+                                <label class=" checkbox block  " name="check">
+                                 <span>
+                                        Select this area
+                                    </span>
+                                    <input id="checkbox" class="mr-2 leading-tight checkbox checkboxRequired "
+                                        name="check" type="checkbox"  >
+                                </label>
+                            </div>
+                        </div>
+                    </template>
+
+                </div>
+
+                <div id="timer" data-minutes="5" data-seconds="0" class="absolute bottom-8 right-0 z-4"></div>
 
 
+                <div class="flex   justify-evenly  p-4">
 
 
-            <div class="flex   justify-evenly  p-4">
+                    <div class="bg-orange-300  rounded cursor-pointer " id="recipient">
+                        <button class=" text-slate-800 text-md font-bold text-center p-4" type="submit">Next
+                            Step</button>
 
-<form action="#popup">
-                <div class="bg-orange-300  rounded cursor-pointer " id="recipient">
-                    <button class=" text-slate-800 text-md font-bold text-center p-4" type="submit">Next Step</button>
+                    </div>
+
 
                 </div>
             </form>
-
-            </div>
             <div>
 
 
             </div>
+
         </div>
 
     </div>
 
 
     <div id="popUp" class="modalpop hide model rounded-2xl m-4 ">
-        <div class="dialoginfo ">
+        <div class="dialoginfo top-2 ">
             <button class="closingbutton">&#10006</button>
-            <article class="form text-white">
-                <h2 class="m-3 text-center text-xl">Ticket no. 1</h2>
-                <form class="form2 border border-zinc-800 shadow  rounded">
-                    <div class="flex flex-col md:flex-row">
-                        <div class="   justify-items p-3  ">
-                            <div class="w-full px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide  text-xs font-bold mb-2"
+         
+            <article class="form text-white ">
+                <h1 class="m-3 text-center text-xl">Ticket no. 1</h1>
+                <form action="#popUp2" id="form2" class="form2 border border-zinc-800 shadow  rounded ">
+                    <div class="flex flex-col md:flex-row ">
+                        <div class=" flex md:flex-col justify-items p-3  ">
+                            <div class=" md:w-full px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide  text-sm md:text-md font-bold mb-2"
                                     for="grid-first-name">
                                     First Name
                                     <input
-                                        class="appearance-none block w-full text-black text-md bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        class="appearance-none block w-20 md:w-full text-black text-md bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         id="grid-first-name" type="text" placeholder="John" required>
                                 </label>
 
 
                             </div>
-                            <div class="w-full   p-4">
-                                <label class="block uppercase tracking-wide  text-xs font-bold mb-2"
+                            <div class="w-full   ">
+                                <label class="block uppercase tracking-wide  text-sm md:text-md md:text-md font-bold mb-2"
                                     for="grid-last-name">
                                     Middle Name
                                 </label>
                                 <input
-                                    class="appearance-none block w-full text-black bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    id="grid-last-name" type="text" placeholder="Turd" >
+                                    class="appearance-none block w-20 md:w-full text-black bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    id="grid-last-name" type="text" placeholder="Turd">
                             </div>
                             <div class="w-full px-3">
-                                <label class="block uppercase tracking-wide  text-xs font-bold mb-2"
+                                <label class="block uppercase tracking-wide  text-sm md:text-md font-bold mb-2"
                                     for="grid-last-name">
                                     Last Name
                                 </label>
                                 <input
-                                    class="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight text-black focus:outline-none focus:bg-white focus:border-gray-500"
+                                    class="appearance-none block w-20 md:w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 leading-tight text-black focus:outline-none focus:bg-white focus:border-gray-500"
                                     id="grid-last-name" type="text" placeholder="Deep" required>
                             </div>
                         </div>
                         <div class=" p-3">
-                            <div class="md:flex-nowrap -mx-3 mb-6 ">
+                            <div class=" flex md:flex-col -mx-3 mb-6 ">
 
-                                <div class="w-full px-3 ">
+                                <div class="md:w-full px-3 ">
                                     <label class="block uppercase tracking-wide  text-xs font-bold mb-2"> Email
                                     </label>
                                     <input
-                                        class="appearance-none block bg-gray-200  border text-black border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        class="w-20 md:w-full appearance-none block bg-gray-200  border text-black border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         id="grid-password" type="email" placeholder="abc@gmail.com" required>
 
                                 </div>
-                                <div class="w-full px-3">
+                                <div class=" w-48 md:w-full px-3">
                                     <label class="block uppercase tracking-wide  text-xs font-bold mb-2">Phone Number
                                     </label>
                                     <input
-                                        class="appearance-none block  bg-gray-200  border border-gray-200 rounded py-3 px-4 mb-3 text-black leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                        id="grid-password" type="phone" placeholder="" required>
+                                        class="w-20 md:w-full appearance-none block  bg-gray-200  border border-gray-200 rounded py-3 px-4 mb-3 text-black leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        id="grid-password" type="tel" placeholder="" required>
 
                                 </div>
                             </div>
-                            <div class=" -mx-3 mb-2">
-                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                            <div class=" -mx-3 mb-2 flex md:flex-col">
+                                <div class="w-20 md:w-full px-3 mb-6 md:mb-0">
                                     <label class="block uppercase tracking-wide  text-xs font-bold mb-2"
                                         for="grid-city">
                                         City
                                     </label>
                                     <input
-                                        class="appearance-none block bg-gray-200  border text-black border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        class="w-20 md:w-full appearance-none block bg-gray-200  border text-black border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                                         id="grid-city" type="text" placeholder="Albuquerque" required>
                                 </div>
 
-                                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                                    <label class="block uppercase tracking-wide text-xs font-bold mb-2" for="grid-zip">
+                                <div class=" w-20 md:w-full px-3 mb-6 md:mb-0">
+                                    <label class=" block uppercase tracking-wide text-xs font-bold mb-2" for="grid-zip">
                                         Zip
                                     </label>
                                     <input
-                                        class="appearance-none block bg-gray-200  border text-black border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                        id="grid-zip" type="text" placeholder="90210" required>
+                                        class="w-28 md:w-full appearance-none block bg-gray-200  border text-black border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                        id="grid-zip" type="text" placeholder="9210" required>
                                 </div>
                             </div>
                         </div>
                     </div>
-                  
-                </form>
-                <div class="text-center text-white p-3" >
-                    <form action="#popUp2">
-                    <button class="checkoutform bg-purple-700 p-3 rounded text-center justify-items-center " type="submit" id="checkOut" >Next
-                        Step</button>
-                        </form>
-                        
+
+               
+                <div class="text-center text-white p-3">
+                   
+                        <button class="checkoutform bg-purple-700 p-3 rounded text-center justify-items-center "
+                            type="submit" id="checkOut">Next
+                            Step</button>
+                   
+
                 </div>
+            </form>
             </article>
+      
         </div>
     </div>
 
     <div id="popUp2" class="modalpop2 hide model2 rounded-2xl m-3 shadow-2xl shadow-white ">
         <div class="dialogpay m-3">
             <button class="closingbutton">&#10006</button>
-
-
+            <form action="ticket.html?name=" id="form3">
             <div class=" text-white w-96 p-4 rounded-xl ">
 
                 <h1 class="text-yellow-500 text-xl">Payment form</h1>
-                <div class="flex flex-col md:flex-row  ">
+                <div class="flex flex-col md:flex-row ">
                     <span class="fieldRow">
                         <label for="name">First name</label>
                         <input id="name" type="name" placeholder=""
-                            class="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 m-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  text-center" />
+                            class="appearance-none block w-full bg-gray-200  border border-gray-200 rounded py-3 px-4 m-2 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  text-center text-black "  required/>
 
                         <i for="name" class="fa fa-user"></i>
                     </span>
@@ -382,7 +389,7 @@
                     <span class="fieldRow m-3">
                         <label for="surname">Last name</label>
                         <input id="surname" type="name" placeholder=""
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 m-2 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" />
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 m-2 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 text-black " required />
 
                         <i for="surname" class="fa fa-user"></i>
                     </span>
@@ -391,8 +398,8 @@
                     <span class="fieldRow credit_card">
                         <label for="cc">Card number</label>
                         <input id="cc"
-                            class="credit_card_number appearance-none block w-80 ml-5 bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-1 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  text-center"
-                            type="text" placeholder="xxxx-xxxx-xxxx" />
+                            class="credit_card_number appearance-none block w-80 ml-5 bg-gray-200 text-gray-700 border border-gray-200 rounded py-2 px-1 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  text-center text-black "
+                            type="text" placeholder="xxxx-xxxx-xxxx" required />
 
                     </span>
                 </div>
@@ -400,7 +407,7 @@
                     <span class="fieldRow col2 m-3">
                         <label for="cvv">CVV</label>
                         <input id="cvv" type="text" placeholder="XXX"
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  text-center" />
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  text-center text-black " required />
 
                         <i for="cvv" class="fa fa-lock"></i>
                     </span>
@@ -408,24 +415,24 @@
                     <span class="fieldRow col2 last m-3">
                         <label for="date">Date</label>
                         <input id="date" type="text" placeholder="mm/yy"
-                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  text-center" />
+                            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500  text-center text-black " required />
 
                         <i for="date" class="fa  fa-calendar "></i>
                     </span>
                 </div>
 
                 <div class="text-center text-white p-3">
-                    <form action="ticket.html">
-                        <button class="checkoutform bg-purple-700 p-3 rounded text-center justify-items-center">Pay
-                            Now</button></form>
+                
+                        <button class="checkoutform bg-purple-700 p-3 rounded text-center justify-items-center" type="submit">Pay
+                            Now</button>
                 </div>
             </div>
 
-
+        </form>
 
         </div>
     </div>
-    <script type="module" src="./booking.js" ></script>
+    <script type="module" src="./booking.js"></script>
 
     <!-- <script type="module" src="/main.js" ></script> -->
 

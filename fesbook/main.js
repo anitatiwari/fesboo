@@ -67,7 +67,7 @@ function displayLineup() {
     bandJson.forEach((artist) => {
         let clone = temp.cloneNode(true);
         clone.querySelector("#bandName").innerHTML = artist.name;
-        clone.querySelector("#genre").innerHTML = artist.genre;
+        clone.querySelector("#genre").innerHTML =  "(" + artist.genre +")";
         if (artist.logo.startsWith("http://")) {
             clone.querySelector("#logo").src = artist.logo;
         } else {
@@ -78,7 +78,7 @@ function displayLineup() {
             li.appendChild(document.createTextNode(m))
             clone.querySelector("#member").appendChild(li)
         })
-        clone.querySelector("#genre").addEventListener('click', function () {
+        clone.querySelector("#details").addEventListener('click', function () {
             openArtist(artist);
         });
 
@@ -100,7 +100,8 @@ function openArtist(artist) {
 
     document.querySelector(".title").innerHTML = artist.name
     document.querySelector(".modal-body").innerHTML = artist.bio
-
+    document.querySelector(".logo2").src = artist.logo
+document.getElementById("member2").innerHTML=artist.members
 }
 
 
@@ -146,3 +147,4 @@ document.getElementById("menu").addEventListener("click", menuOnClick);;
   document.getElementById("nav").classList.toggle("change");
   document.getElementById("menu-bg").classList.toggle("change-bg");
 }
+

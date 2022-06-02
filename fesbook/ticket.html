@@ -7,43 +7,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Festival</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="ticket.css">
-    <script src="barcode.min.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/ticket.css">
+    <script src="/barcode.min.js"></script>
     
 </head>
-<body>
+
+<header class="flex flex-col md:flex-row justify-around">
+ 
+
+ 
+  <div class="logo m-auto p-0 md:m-0 md:p-0">
+    <a href="index.html"> <img src="logo.png" alt="logo" class="md:w-24 w-24 "></a>
+  </div>
+  <div class="menu-bg " id="menu-bg"></div>
+    <div id="menu" class=" m-4 " >
     
-    <div class="container">
-    <div class="item">
+      <nav class="flex  text-white" id="nav">
+        <ul class="flex gap-5 md:gap-9 justify-around md:justify-evenly md:text-xl">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Festival App</a></li>
+  
+          <li><a href="booking1.html">Get Ticket</a></li>
+        </ul>
+      </nav> 
+  </div>
+  </header>
+  
+  
+<body class="bg-zinc-800">
+    <div class="flex flex-col justify-evenly">
+  <div>
+    <h1 class=" heading text-white">YOUR TICKET</h1>
+  </div>
+    <div class="container ">
+    <div class="item ">
    <!-- end item-right -->
       
-      <div class="item-up   m-2">
+      <div class="item-up  bg-purple-400 ">
         
-        <h2 class="title text-black text-2xl">Music Event</h2>
+        <h1 class="title text-black text-2xl">Music Event</h1>
         <img src="img3.jpg" alt="festival image" class="rounded-xl w-full h-48 object-cover">
+        <div>
+          <p>issued to <span id="name"></span></p>
+        </div>
         <div class="sce flex justify-around border border-slate-700 rounded p-6">
             <div class="">  
-                <h5>Date:</h5> <p class="">Monday</p>
-                <p class="date">
-                  <span class="date">15th 2016</span> 
-               </p></div>
+                <h5>Day</h5> <p class="selectedday">Sunday</p>
+               
+              </div>
      
        
        
         <div class="Area">
             <h5>Area:</h5>
-            <p>  Nilfheim</p>
+            <p class="selectedspots">  Nilfheim</p>
           </div>
         <div class="location">
-         <h5>Address:</h5>
-          <p class="address">North  <br/> </p>
+        
         </div>
     </div>
         
       </div> <!-- end item-right -->
    <!-- end item -->
-   <div class="item-down flex justify-around">
+   <div class="item-down flex justify-around bg-purple-300">
    <div>
        <p class="">Id: <span id="id"></span>382653523465346</p>
        <svg class="barcode"
@@ -58,19 +85,35 @@
   
   
   </div> 
-  <span class="up-border "></span>
+  <span class="up-border bg-zinc-800"></span>
   <span class="dotted"></span>
-  <span class="down-border "></span>
+  <span class="down-border bg-zinc-800 "></span>
     </div>
 </div>
-
+</div>
 <script>
     JsBarcode(".barcode").init();
+    document.getElementById("menu").addEventListener("click", menuOnClick);;
 
+
+
+ function menuOnClick() {
+  document.getElementById("menu-bar").classList.toggle("change");
+  document.getElementById("nav").classList.toggle("change");
+  document.getElementById("menu-bg").classList.toggle("change-bg");
+}
+
+function getName() {
+     
+       document.querySelector("#name").innerHTML=localStorage.getItem('inputname')
+    document.querySelector(".selectedday").innerHTML=localStorage.getItem('inputday')
+    }
+    getName();
+    
 </script>
-   
-    <script src="booking.js"></script>
-    <script type="module" src="main.js"></script>
+
+
+    <!-- <script type="module" src="main.js"></script> -->
 </body>
 
 

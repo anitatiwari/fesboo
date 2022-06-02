@@ -31,11 +31,11 @@
   right: 0px;
   bottom: 0px;
   left: 0px;
-  opacity: 0.7;
+  opacity: 0.4;
 }
 .box{
-    width: 250px;
-margin: 0px 10px;
+    width: 550px;
+/* margin: 0px 10px; */
 transition: 1s;
 
 }
@@ -67,6 +67,10 @@ font-family: 'Lobster', cursive;
 font-family: 'Macondo', cursive;
 font-family: 'Slabo 27px', serif;
 font-family: 'Source Serif Pro', serif; */
+ a{
+  font-family: 'Slabo 27px', serif;
+  letter-spacing: 0.1em;
+}
 .container {
     width: 450px;
     margin: 50px auto;
@@ -110,19 +114,19 @@ font-family: 'Source Serif Pro', serif; */
   }
  
   .neon{
-    font-family: 'Macondo', cursive;
-    color:rgb(57, 54, 54);
+    margin: 1em 0 1em 0em;
+    font-family: 'Slabo 27px', serif;
+    color:rgb(234, 235, 237);
     letter-spacing: 0.1em;
     font-weight: 600;
-    text-shadow:0 0 5px #d5d1d1,
-    0 0 1px #aeabab,
-    0 0 10px #848181;
+    text-shadow:0 0 5px #383434,
+    0 0 1px #4f3434,
+    0 0 10px #4e3d3d;
     animation: glow 3s infinite;
-    position: relative;
+    /* position: relative; */
     /* color: #ffffff;   */
-    font-size: 10rem;
     line-height: 0.9;
-    text-align: center;
+    /* text-align: center; */
   }
   @keyframes glow{
     0%{
@@ -131,13 +135,13 @@ font-family: 'Source Serif Pro', serif; */
     0 0 10px #0c0c0c;
     }
     50%{
-      text-shadow:0 0 20px #d2d1d2,
+      text-shadow:0 0 20px #c82169,
       0 0 10px #a71885,
-      0 0 10px #121212;
+      0 0 10px #8d2323;
     }
     100%{
-      text-shadow:0 0 5px #fffbfb,
-      0 0 1px #a71885,
+      text-shadow:0 0 5px #58115f,
+      0 0 1px #961878,
       0 0 10px #a71885;
     }
   }
@@ -157,9 +161,9 @@ font-family: 'Source Serif Pro', serif; */
 .modalpop {
   position: fixed;
   top: 2rem;
-  left: 0;
-  width: 50vw;
-  height: 90vh;
+  right: 2rem;
+  /* width: 50vw;
+  height: 90vh; */
   background-color:rgb(10, 9, 9);
   display: flex ;
   
@@ -168,12 +172,23 @@ font-family: 'Source Serif Pro', serif; */
   color: rgb(24, 22, 22);
 
 }
+/* @media only screen and (max-width: 600px) {
+  .modalpop {
+    top: 1em;
+  right: 2rem;
+   width: 60vw;
+  height: 90vh;
+overflow: scroll;
+  background-color:rgb(10, 9, 9);
+
+  }
+} */
 .modalpop2 {
   position: fixed;
   top: 2rem;
-  left: 0;
-  width: 50vw;
-  height: 90vh;
+  right: 2rem;
+  /* width: 50vw;
+  height: 90vh; */
   background-color:rgb(13, 12, 12);
   display: flex ;
   
@@ -249,7 +264,7 @@ h2{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(67, 66, 66, 0.5);
     pointer-events: none;
 }
 
@@ -295,7 +310,7 @@ align-items: center;
 .bar {
   height: 5px;
   width: 100%;
-  background-color: rgb(33, 32, 32);
+  background-color: rgb(194, 219, 237);
   display: block;
   border-radius: 5px;
   transition: 0.3s ease;
@@ -324,11 +339,11 @@ align-items: center;
 }
 
 .nav li a {
-  color: rgb(46, 44, 44);
+  color: rgb(244, 238, 238);
   font-size: 20px;
   text-decoration: none;
 }
-
+/* 
 .nav li a:hover {
   font-weight: bold;
 }
@@ -344,7 +359,7 @@ align-items: center;
   width: 0;
   height: 0;
   margin: 30px 0 20px 20px;
-  background: rgba(174, 172, 172, 0.2);
+  background: rgba(4, 4, 4, 0.805);
   border-radius: 5%;
   transition: 0.2s ease;
 }
@@ -354,8 +369,7 @@ align-items: center;
 }
 
 .change .bar {
-  background-color: rgb(51, 50, 50);
-}
+  background-color: rgb(194, 219, 237);}
 
 .change #bar1 {
   transform: translateY(4px) rotateZ(-45deg);
@@ -401,7 +415,7 @@ align-items: center;
 
 /* Create an active/current tablink class */
 .tab button:active {
-  background-color: rgb(29, 5, 57);
+  background-color: rgb(158, 157, 160);
 }
 
 /* Style the tab content */
@@ -411,8 +425,27 @@ align-items: center;
   border: 1px solid #ccc;
   border-top: none;
   color: white;
-}
+} */
 .logo{
 display: flex;
 justify-content: flex-end;
+}
+input[type="email"]:valid {
+  border-color:rgb(17, 217, 17);
+}
+input[type="email"]:invalid {
+  border-color :rgb(208, 74, 87);
+}
+input[type="tel"]:valid {
+  border-color:rgb(17, 217, 17);
+}
+input[type="tel"]:invalid {
+  border-color:rgb(217, 17, 17);
+}
+footer{
+background-color: rgba(178, 72, 187, 0.3);
+font-family: Arial, Helvetica, sans-serif;
+}
+.stylethis3{
+  font-size: 1.2em;
 }

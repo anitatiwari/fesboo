@@ -4,30 +4,32 @@
     <meta charset="UTF-8"/>
     <!-- <link rel="icon" type="image/svg+xml" href="favicon.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Book Ticket">
+    <meta name="keywords" content="music, Booking-ticket, Festival, Pop,Entertainment, Artist, Band">
     <title>Festival</title>
+        <link rel="stylesheet" href="/style.css">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
    
 </head>
-<body class=" 
+<body class=" bg-zinc-800
 ">
-<header>
+<header class="flex flex-col md:flex-row justify-around">
  
 
  
-<div class="logo">
-  <img src="logo.png" alt="logo" class="w-24 ">
+<div class="logo m-auto p-0 md:m-0 md:p-0">
+  <a href="index.html"> <img src="logo.png" alt="logo" class="md:w-24 w-24 "></a>
+ 
   </div>
-<div class="menu-bg" id="menu-bg"></div>
-  <div id="menu" class=" m-3 " >
-    <div id="menu-bar">
-      <div id="bar1" class="bar"></div>
-      <div id="bar2" class="bar"></div>
-      <div id="bar3" class="bar"></div>
-    </div>
-    <nav class="nav" id="nav">
-      <ul>
+<div class="menu-bg " id="menu-bg"></div>
+  <div id="menu" class=" m-4 " >
+  
+    <nav class="flex  text-white" id="nav">
+      <ul class="flex gap-5 md:gap-9 justify-around md:justify-evenly md:text-xl">
         <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Festival App</a></li>
+
         <li><a href="booking1.html">Get Ticket</a></li>
       </ul>
     </nav> 
@@ -35,22 +37,22 @@
 </header>
 
 
-<div class="title flex  md:flex-row md:justify-items-center justify-evenly	 rounded-2xl  text-center shadow-md    ">
+<div class=" flex flex-col md:flex-row md:justify-items-center justify-evenly	 rounded-2xl  text-center shadow-md    ">
       
   
 
-  <!-- <div> <img src="./public/SVG/guitar.svg" alt="" class="left-guitar w-44 md:w-full justify-self-start h-80 "></div> -->
-  <div class="imgcontainer "><p class="neon   p-3">Festival Beat</p></div>
+  <div class="md:m-8 "><p class="neon text-5xl  md:text-9xl md:p-3">Festival Beat</p></div>
 
-<!--  
-  <div> <img src="/public/1x/Artboard 1.png" alt="" class=" w-44 md:w-full  h-80 "></div> -->
+<div>
+  <img src="/1x/Artboard 1.png" alt="" class="opacity-80 w-48 md:w-max  p-0 m-auto md:m-0 md:p-0">
+</div>
 
 
  </div>
 
-<div class="contain">
-    <div class="box ">
-        <img src="img1.jpg" alt="aditya-chinchure-ZhQCZjr9fHo-unsplash" class="object-cover">
+<div class="contain ">
+    <div class="box  ">
+        <img src="img1.jpg" alt="aditya-chinchure-ZhQCZjr9fHo-unsplash" class=" object-cover">
     </div>
     <div class="box">
         <img src="img2.jpg" alt="alfonso-scarpa-e12EkMYv44U-unsplash">
@@ -70,33 +72,46 @@
 
 </div>
 
-<div class="textline text-rose-700 text-5xl m-5">
-    <h1 class="quote">Its TiMe tO AcT Book iT lOVe iT</h1>
-    <h3>EnJOy tHe ViBe</h3>
+<div class="textline text-white text-5xl m-12">
+    <h1 class="quote">Its Time to Act Book it love it</h1>
+    <h3>Enjoy the Vibe</h3>
 </div>
 <form action="booking1.html">
-<button class="getTicket bg-yellow-600 text-black text-xl  p-4  rounded-xl  border-zinc-800 border">
-Get Ticket</button>
+<button class="getTicket bg-violet-500 text-white font-semibold text-3xl   p-4  rounded-xl ">
+<p class="leading-5"> Get Ticket</p></button>
 </form>
 <div class="elementcontainer ">
 
 </div>
 
-<div class="modal" id="modal">
+<div class="modal p-4 bg-white text-black w-auto md:h-98 " id="modal">
+  
     <div class="modal-header">
-        <div class="title">Example Modal</div>
+
+        <div class="title"></div>
         <button data-close-button class="close-button">&times;</button>
     </div>
-    <div class="modal-body ">
+    <div class="flex flex-col md:flex-row gap-5">
+    <div > 
+      <img class="logo2 md:h-80 h-48 object-cover" src="" alt="" >
+    </div>
+    <div>
+    <div class="flex gap-3 text-xl text-purple-700">
+      <p>Members:</p>
+    <ul id="member2"  class="flex   w-full"></ul>
+  </div>
+    <div class="modal-body md:w-80 md:h-60 h-48 overflow-scroll">
 
     </div>
+  </div>
+  </div>
 </div>
 <div id="overlay"></div>
 <template  id="artist">
 <div class="wrapper">
 <div >
 
-        <div class=" w-96 rounded-xl shadow-2xl overflow-hidden m-2 ">
+        <div class=" w-96  rounded-xl shadow-2xl overflow-hidden m-2 ">
             <div class="picture_band ">
               <div class="z-2" >
                
@@ -104,14 +119,17 @@ Get Ticket</button>
                     <img id="logo" class="h-48 w-full object-cover md:h-80 md-w-96 opacity-35 " src="" alt="">
                 </div>
               </div>
-                <div class="info  text-white   grid grid-cols-2">
-                  <div class=" tracking-wide text-xl text-rose-200 font-semibold text-center" id="bandName">BandName
+                <div class="info  text-white grid grid-cols-2">
+                  <div class=" tracking-wide text-xl text-neutral-200 font-semibold text-center w-48" id="bandName">BandName
                   </div>
-<p id="genre" class="text-xl  "></p>
-                    <a href="#modal"  id="details" >Details</a>
-                    <p  id="bio"></p>
-                    <h5>Band Members:</h5>
-                    <ul id="member"  class="flex  gap-2  w-full"></ul>
+                  <p id="genre" class="text-xl text-white "></p>
+                  <div>
+
+                    <a href="#modal"  id="details" class="text-xl bg-violet-700  p-2 rounded-xl w-20">Details</a>
+                  </div>
+                    <p  id="bio" class="hidden"></p>
+                    <h5 class="hidden">Band Members:</h5>
+                    <ul id="member"  class="flex  gap-2  w-full hidden"></ul>
                   
                 </div>
             </div>
@@ -120,7 +138,15 @@ Get Ticket</button>
     </div>
   </div>
 </template>
+<footer>
+  <ul class="flex flex-col md:flex-row text-white text-xl justify-evenly p-8 ">
+    <li><a href="#">Information</a></li>
+    <li><a href="#">FAQS</a></li>
+    <li><a href="#">Become a Volunteer</a></li>
+    <li><a href="#">Terms and Condition</a></li>
 
+  </ul>
+</footer>
 <script type="module" src="/main.js"></script>
 </body>
 </html>
