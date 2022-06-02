@@ -1,4 +1,3 @@
-
 let pre_book;
 let scheduleJson;
 let spotsJson;
@@ -97,32 +96,23 @@ function displaySchedule() {
       let daydata = data[day];
       daydata.forEach((time) => {
         let list = document.createElement("li");
-        list.setAttribute("class", "scheduleList")
+        list.setAttribute("class", "scheduleList");
         let element3 = document.createElement("div");
         let element1 = document.createElement("div");
         let element2 = document.createElement("div");
-      
+
         element1.setAttribute("class", "stylethis");
-    element3.innerText =
-        "Act:   " +
-        time["act"]
-        element1.innerText =
-          "Start:  - " +
-          time["start"]
-          element3.setAttribute("class", "stylethis3");
-        
-          element2.setAttribute("class", "stylethis2");
-          element2.innerText =
-            "end:  - " +
-            time["end"];
-            list.appendChild(element3);
-            list.appendChild(element1);
-            list.appendChild(element2);
-          
-      
+        element3.innerText = "Act:   " + time["act"];
+        element1.innerText = "Start:  - " + time["start"];
+        element3.setAttribute("class", "stylethis3");
+
+        element2.setAttribute("class", "stylethis2");
+        element2.innerText = "end:  - " + time["end"];
+        list.appendChild(element3);
+        list.appendChild(element1);
+        list.appendChild(element2);
 
         let listelem = clone.querySelector("#" + day + " ul").appendChild(list);
-      
       });
     });
 
@@ -146,7 +136,7 @@ function displaySpots(spot) {
   clone.querySelector(".spots").innerHTML = spot.spots;
 
   clone.querySelector(".available").textContent = spot.available;
- 
+
   document.querySelector("#availableSpots").appendChild(clone);
 }
 
@@ -192,6 +182,7 @@ normalTicketplus();
 
 var poke01 = document.getElementById("poke01");
 var cmp1 = document.getElementById("counter2");
+
 poke01.addEventListener("click", vipTicketminus);
 function vipTicketminus() {
   let newCount = parseInt(cmp1.innerHTML) - 1;
@@ -211,8 +202,6 @@ function vipTicketplus() {
 
   updateTotalGlobal();
 }
-
-vipTicketplus();
 
 let calcTotal = parseInt(total1) + parseInt(total2) + parseInt(pre_book);
 
@@ -251,40 +240,40 @@ document.getElementById("form1").addEventListener("submit", (event) => {
 });
 function onClick() {
   let elems = document.getElementsByClassName("checkboxRequired");
-  countdown()
+  countdown();
   let atleastOneChecked = false;
   for (let i = 0; i < elems.length; i++) {
     if (elems[i].checked) {
       atleastOneChecked = true;
-     
     }
   }
   if (!atleastOneChecked) {
     alert("Please select any one spot");
+    halt()
     return;
+   
   }
 
   document.querySelector("#popUp").classList.remove("hide");
   document
     .querySelector(" #popUp .closingbutton")
     .addEventListener("click", closeDialog);
-    document.querySelector("#timer").classList.remove("hide")
-
-
+  document.querySelector("#timer").classList.remove("hide");
 
   function closeDialog() {
     document.querySelector("#popUp").classList.add("hide");
     document
       .querySelector("#popUp .closingbutton")
       .removeEventListener("click", closeDialog);
-    document.querySelector("#timer").classList.add("hide")
+    document.querySelector("#timer").classList.add("hide");
+    halt();
   }
 }
 document.getElementById("form2").addEventListener("submit", (event) => {
   event.preventDefault();
   console.log("Form submission cancelled.");
   checkOutForm();
-})
+});
 function checkOutForm() {
   document.querySelector("#popUp2").classList.remove("hide");
   document.querySelector("#popUp").classList.add("hide");
@@ -292,6 +281,7 @@ function checkOutForm() {
   document
     .querySelector(" #popUp2 .closingbutton")
     .addEventListener("click", closeDialog2);
+  setName();
 
   function closeDialog2() {
     document.querySelector("#popUp2").classList.add("hide");
@@ -308,117 +298,109 @@ function menuOnClick() {
   document.getElementById("menu-bg").classList.toggle("change-bg");
 }
 
-function setName(){
-let inputname=document.getElementById("grid-first-name").value;
-localStorage.setItem('inputname', inputname);
-let inputday =document.getElementById("days").value;
-localStorage.setItem('inputday', inputday);
+function setName() {
+  let inputname = document.getElementById("grid-first-name").value;
+  localStorage.setItem("inputname", inputname);
+  let inputday = document.getElementById("days").value;
+  localStorage.setItem("inputday", inputday);
 
 }
-setName();
 
 const oneSec = 1000,
-      container = document.getElementById('timer');
-      
-    let  dataMinutes = container.getAttribute('data-minutes');
-    let dataSeconds = container.getAttribute('data-seconds');
-		let timerEnd 		= container.getAttribute('data-timer-end');
-	let 	timerOnEndMsg = "data-timer-end";
+  container = document.getElementById("timer");
 
-if (dataMinutes == '' || dataMinutes == null || dataMinutes == NaN) {
+let dataMinutes = container.getAttribute("data-minutes");
+let dataSeconds = container.getAttribute("data-seconds");
+let timerEnd = container.getAttribute("data-timer-end");
+let timerOnEndMsg = "data-timer-end";
+
+if (dataMinutes == "" || dataMinutes == null || dataMinutes == NaN) {
   dataMinutes = "0";
 }
-if (dataSeconds == '' || dataSeconds == null || dataSeconds == NaN) {
+if (dataSeconds == "" || dataSeconds == null || dataSeconds == NaN) {
   dataSeconds = "0";
 }
 let counter;
-const countdown= function(){
-   let  minutesSpan = document.createElement('span');
-  let secondsSpan = document.createElement('span');
-   let  separator1 = document.createElement('span');
-   let  separator2 = document.createElement('span');
-  let   separatorValue = ":";
-  minutesSpan.style.backgroundColor="red";
-secondsSpan.style.backgroundColor="red";
+const countdown = function () {
+  let minutesSpan = document.createElement("span");
+  let secondsSpan = document.createElement("span");
+  let separator1 = document.createElement("span");
+  let separator2 = document.createElement("span");
+  let separatorValue = ":";
+  minutesSpan.style.backgroundColor = "red";
+  secondsSpan.style.backgroundColor = "red";
 
-  separator2.style.backgroundColor="red";
-  minutesSpan.style.padding="10px";
-  secondsSpan.style.padding="10px";
-  
-    separator2.style.padding="10px";
+  separator2.style.backgroundColor = "red";
+  minutesSpan.style.padding = "10px";
+  secondsSpan.style.padding = "10px";
 
+  separator2.style.padding = "10px";
 
-  let   max = 59,
+  let max = 59,
     s = parseInt(dataSeconds) > max ? max : parseInt(dataSeconds);
-   let  m = parseInt(dataMinutes) > max ? max : parseInt(dataMinutes);
+  let m = parseInt(dataMinutes) > max ? max : parseInt(dataMinutes);
 
-secondsSpan.classList.add('time');
-minutesSpan.classList.add('time');
-separator1.classList.add('separator');
-separator1.textContent = separatorValue;
-separator2.classList.add('separator');
-separator2.textContent = separatorValue;
+  secondsSpan.classList.add("time");
+  minutesSpan.classList.add("time");
+  separator1.classList.add("separator");
+  separator1.textContent = separatorValue;
+  separator2.classList.add("separator");
+  separator2.textContent = separatorValue;
 
-let checkValue = (value)=>{
-  if (value < 10) {
-    return "0" + value;
-  } else {
-    return value;
-  }
-}
-minutesSpan.textContent = checkValue(dataMinutes);
-secondsSpan.textContent = checkValue(dataSeconds);
-
-let timer = (sv,mv)=>{
-
-  s = parseInt(sv);
-  m = parseInt(mv);
-  
-  if (s > 0) {
-    return s -= 1
-  } else {
-    s = max;
-    if (m > 0) {
-      return m -= 1;
-    } 
+  let checkValue = (value) => {
+    if (value < 10) {
+      return "0" + value;
+    } else {
+      return value;
     }
+  };
+  minutesSpan.textContent = checkValue(dataMinutes);
+  secondsSpan.textContent = checkValue(dataSeconds);
+
+  let timer = (sv, mv) => {
+    s = parseInt(sv);
+    m = parseInt(mv);
+
+    if (s > 0) {
+      return (s -= 1);
+    } else {
+      s = max;
+      if (m > 0) {
+        return (m -= 1);
+      }
+    }
+  };
+
+  let finished = () => {
+    max = 0;
+    let timerEnd = container.getAttribute(timerOnEndMsg);
+    container.setAttribute(timerOnEndMsg, "true");
+    if (timerEnd == "" || timerEnd == null) {
+      container.textContent = "timer-end";
+    } else {
+      container.textContent = timerEnd;
+    }
+  };
+
+  counter = setInterval(() => {
+    if (m == 0 && s == 0) {
+      clearInterval(counter, finished());
+    }
+
+    if (s >= 0) {
+      timer(s, m);
+      minutesSpan.textContent = checkValue(m);
+      secondsSpan.textContent = checkValue(s);
+    }
+  }, oneSec);
+  let child;
+  let children = [minutesSpan, separator2, secondsSpan];
+
+  for (child of children) {
+    container.appendChild(child);
   }
-
-
-let finished = ()=>{
-  max = 0;
-	let timerEnd = container.getAttribute(timerOnEndMsg);
-	container.setAttribute(timerOnEndMsg, 'true');
-	if (timerEnd == '' || timerEnd == null) {
-		container.textContent = "timer-end";
-	} else {
-		container.textContent = timerEnd;
-	}
-}
-
- counter = setInterval(()=>{
-
-  if ( m == 0 && s == 0) {
-    clearInterval(counter, finished());
-  }
-
-  if (s >= 0) {
-    timer(s,m);
-    minutesSpan.textContent = checkValue(m);
-    secondsSpan.textContent = checkValue(s);
-  }
-}, oneSec);
-let child;
-let children = [  minutesSpan, separator2, secondsSpan];
-
-for (child of children) {
-  container.appendChild(child);
-}
-
-}
-function halt(){
+};
+function halt() {
   clearInterval(counter);
-
+  document.getElementById("timer").innerHTML = "";
 }
-
-

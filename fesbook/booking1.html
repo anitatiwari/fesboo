@@ -100,8 +100,8 @@
         </div>
         <div class="w-full shadow-xl shadow-pink-500 rounded px-8 pt-6 pb-8  text-white ">
             <h5 class=" buy-ticket  font-bold  text-2xl  md:m-5">Buy Ticket</h5>
-            <div class="flex felx-col md:flex-row justify-evenly gap-2">
-                <div class="addminus bg-fuchsia-800 md:p-3 rounded-xl md:w-46 md:m-2 ">
+            <div class="flex felx-col md:flex-row justify-evenly gap-2 p-3 md:p-0">
+                <div class="addminus p-2 bg-fuchsia-800 md:p-3 rounded-xl md:w-46 md:m-2 ">
                     <div class="p-2  rounded  ">
                         <p class="quan1 font-semibold md:text-xl md:p-2 ">Normal Ticket</p>
                         <p class="quan1  ">per Ticket - <span id="normal-price">799 </span> dkk</p>
@@ -116,7 +116,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="addminus bg-yellow-700 md:p-5 rounded-xl md:w-46 md:m-2 ">
+                <div class="addminus bg-yellow-700 p-2 md:p-5 rounded-xl md:w-46 md:m-2 ">
                     <div class="md:p-1">
                         <p class="quan1 font-semibold text-xl  p-2">VIP Ticket</p>
                         <p class="quan1 font-semibold">per Ticket - <span id="vip-price">1299</span> dkk </p>
@@ -133,7 +133,7 @@
 
                 </div>
             </div>
-            <div class="flex flex-col md:m-5 text-xl border border-slate-700 rounded-md  ">
+            <div class="flex flex-col md:m-5 text-xl border border-slate-700 rounded-md m-3 ">
                 <div class="m-3 ">
                     <div> Pre Book Camping spot (<span id="pre-book" class="text-yellow-300">99</span> kr)
                     </div>
@@ -146,7 +146,7 @@
             </div>
             <form action="#popUp" id="form1">
                 <div class="flex flex-col md:flex-row justify-evenly md:mt-4">
-                    <div class="select ">
+                    <div class="select m-3 md:m-0">
 
 
                         <label for="days" class="text-xl text-zinc-200">Select a day:</label>
@@ -165,7 +165,7 @@
 
                     </div>
 
-                    <div class="md:w-56 bg-white dotted font-semibold ">
+                    <div class="md:w-56 bg-white dotted font-semibold m-3 md:m-0 ">
                         <p class="flex  text-black text-center  rounded p-1 text-xl "> Your Total: <span id="total"
                                 class="pl-3"> 000</span>kr  </p>
                     </div>
@@ -206,7 +206,8 @@
 
                 </div>
 
-                <div id="timer" data-minutes="5" data-seconds="0" </div>
+                <div id="timer" data-minutes="5" data-seconds="0" class="absolute bottom-9">
+                     </div>
 
 
                 <div class="flex   justify-evenly  p-4">
