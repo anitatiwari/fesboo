@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Festival</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -93,14 +92,11 @@
     JsBarcode(".barcode").init();
     document.getElementById("menu").addEventListener("click", menuOnClick);;
 
-
-
     function menuOnClick() {
       document.getElementById("menu-bar").classList.toggle("change");
       document.getElementById("nav").classList.toggle("change");
       document.getElementById("menu-bg").classList.toggle("change-bg");
     }
-
     function getName() {
 
       document.querySelector("#name").innerHTML = localStorage.getItem('inputname')

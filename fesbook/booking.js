@@ -100,7 +100,7 @@ function displaySchedule() {
         let element3 = document.createElement("div");
         let element1 = document.createElement("div");
         let element2 = document.createElement("div");
-
+//creating the new class stylethis for design
         element1.setAttribute("class", "stylethis");
         element3.innerText = "Act:   " + time["act"];
         element1.innerText = "Start:  - " + time["start"];
@@ -126,7 +126,7 @@ function displaySpotList(spots) {
     spot.forEach((data) => {});
   });
 }
-
+//display the available spots 
 function displaySpots(spot) {
   let temp3 = document.querySelector("#spots").content;
 
@@ -219,7 +219,7 @@ function updateTotal(newNumber) {
   }
   document.getElementById("total").innerText = newNumber;
 }
-
+//update the value of total everytime user intereact with the ounter
 function updateTotalGlobal() {
   let normalPrice = 799;
   let vipPrice = 1299;
@@ -288,9 +288,10 @@ function onClick() {
 }
 document.getElementById("form2").addEventListener("submit", (event) => {
   event.preventDefault();
-  // console.log("Form submission cancelled.");
   checkOutForm();
 });
+
+
 //push data to database
 document.getElementById("form3").addEventListener("submit", (event) => {
   event.preventDefault();
@@ -336,9 +337,6 @@ function post(payload){
 function checkOutForm() {
   document.querySelector("#popUp2").classList.remove("hide");
   document.querySelector("#popUp").classList.add("hide");
-
-  
-
   document
     .querySelector(" #popUp2 .closingbutton")
     .addEventListener("click", closeDialog2);
@@ -361,6 +359,7 @@ function menuOnClick() {
   document.getElementById("menu-bg").classList.toggle("change-bg");
 }
 
+//store the name and selected days locally
 function setName() {
   let inputname = document.getElementById("grid-first-name").value;
   localStorage.setItem("inputname", inputname);
@@ -371,7 +370,7 @@ function setName() {
 
   
 }
-
+// to start countdown when user clicks next step after ticket form
 const oneSec = 1000,
   container = document.getElementById("timer");
 
@@ -388,6 +387,7 @@ if (dataSeconds == "" || dataSeconds == null || dataSeconds == NaN) {
 }
 let counter;
 const countdown = function () {
+  //creating element for timer div 
   let minutesSpan = document.createElement("span");
   let secondsSpan = document.createElement("span");
   let separator1 = document.createElement("span");
@@ -466,7 +466,9 @@ const countdown = function () {
     container.appendChild(child);
   }
 };
+//stop the timer
 function halt() {
   clearInterval(counter);
+  //empty the div timer once user close dialouge
   document.getElementById("timer").innerHTML = "";
 }
