@@ -136,8 +136,10 @@ function displaySpots(spot) {
   clone.querySelector(".spots").innerHTML = spot.spots;
 
   clone.querySelector(".available").textContent = spot.available;
+  clone.querySelector("#checkbox").dataset.area = spot.area;
 
   document.querySelector("#availableSpots").appendChild(clone);
+  
 }
 
 pre_book = document.getElementById("pre-book").innerText;
@@ -242,9 +244,11 @@ function onClick() {
   let elems = document.getElementsByClassName("checkboxRequired");
   countdown();
   let atleastOneChecked = false;
+  let selectArea;
   for (let i = 0; i < elems.length; i++) {
     if (elems[i].checked) {
       atleastOneChecked = true;
+     selectArea = elems[i].dataset.area;
     }
   }
   if (!atleastOneChecked) {
@@ -253,6 +257,18 @@ function onClick() {
     return;
    
   }
+  //get id in ticket
+  const requestOptions = {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({area: selectArea , amount: 1})
+  };
+  fetch('https://festevent-book.herokuapp.com/reserve-spot', requestOptions)
+    .then(response => response.json())
+    .then((sp) => {
+      // console.log(sp.id);
+      localStorage.setItem("selectid", sp.id);
+    });
 
   document.querySelector("#popUp").classList.remove("hide");
   document
@@ -267,16 +283,61 @@ function onClick() {
       .removeEventListener("click", closeDialog);
     document.querySelector("#timer").classList.add("hide");
     halt();
+    
   }
 }
 document.getElementById("form2").addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log("Form submission cancelled.");
+  // console.log("Form submission cancelled.");
   checkOutForm();
 });
+//push data to database
+document.getElementById("form3").addEventListener("submit", (event) => {
+  event.preventDefault();
+  let firstname = document.getElementById("grid-first-name").value;
+  let lastname = document.getElementById("grid-last-name").value;
+  let email = document.getElementById("grid-password").value;
+  let phonenumber = document.getElementById("grid-passwor").value;
+  let obj = {
+    "firstname":firstname, 
+    "email":email,
+    "phonenumber":phonenumber,
+    "lastname":lastname
+  };
+  console.log(obj);
+post(obj);
+  
+});
+
+const APIKEY="624fe7dc67937c128d7c95fc"	
+
+const endpoint ="https://pract-6590.restdb.io/rest/data"
+
+function post(payload){
+    fetch(endpoint,{
+        method: "POST",
+        headers: {
+            "x-apikey": APIKEY,
+            "Content-Type":"application/json" 
+        },
+        body: JSON.stringify(payload),
+    })
+    .then((res) => res.json())
+    .then((data) => {console.log(data)
+    document.querySelector("#form3").submit();
+    
+    }
+    );
+}
+
+// ////////////////////////////////////
+
+
 function checkOutForm() {
   document.querySelector("#popUp2").classList.remove("hide");
   document.querySelector("#popUp").classList.add("hide");
+
+  
 
   document
     .querySelector(" #popUp2 .closingbutton")
@@ -288,6 +349,8 @@ function checkOutForm() {
     document
       .querySelector("#popUp2 .closingbutton")
       .removeEventListener("click", closeDialog2);
+
+      
   }
 }
 document.getElementById("menu").addEventListener("click", menuOnClick);
@@ -304,6 +367,9 @@ function setName() {
   let inputday = document.getElementById("days").value;
   localStorage.setItem("inputday", inputday);
 
+
+
+  
 }
 
 const oneSec = 1000,

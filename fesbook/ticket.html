@@ -74,7 +74,7 @@
         <!-- end item -->
         <div class="item-down flex justify-around bg-purple-300">
           <div>
-            <p class="">Id: <span id="id"></span>382653523465346</p>
+            <p class="">Id: <span id="id"></span></p>
             <svg class="barcode" jsbarcode-format="upc" jsbarcode-value="123456789012" jsbarcode-textmargin="0"
               jsbarcode-fontoptions="bold" jsbarcode-background="transparent">
             </svg>
@@ -104,6 +104,7 @@
     function getName() {
 
       document.querySelector("#name").innerHTML = localStorage.getItem('inputname')
+      document.querySelector("#id").innerHTML = localStorage.getItem('selectid')
       document.querySelector(".selectedday").innerHTML = localStorage.getItem('inputday')
     }
     getName();
