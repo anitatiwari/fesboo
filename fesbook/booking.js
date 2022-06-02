@@ -1,6 +1,4 @@
 
-// import { menuOnClick } from 'main.js'
-
 let pre_book;
 let scheduleJson;
 let spotsJson;
@@ -34,7 +32,6 @@ async function init() {
 }
 
 function displaySchedule() {
-  // console.log("hello" , scheduleJson["Jotunheim"]);
   let temp = document.querySelector(".time");
   var keys = Object.keys(scheduleJson);
   let content1 = document.querySelector("#content1");
@@ -125,8 +122,7 @@ function displaySchedule() {
       
 
         let listelem = clone.querySelector("#" + day + " ul").appendChild(list);
-        //  listelem.style.border="0.4px solid"
-        //  listelem.style.fontSize="1.2em"
+      
       });
     });
 
@@ -145,25 +141,16 @@ function displaySpots(spot) {
   let temp3 = document.querySelector("#spots").content;
 
   let clone = temp3.cloneNode(true);
-  // clone.getElementsByTagName("input");
 
   clone.querySelector(".area").innerHTML = spot.area;
   clone.querySelector(".spots").innerHTML = spot.spots;
 
   clone.querySelector(".available").textContent = spot.available;
-  // if(spot.available==0){
-  //  temp3.querySelector(".available").style.color= "#ff0000"
-  // document.querySelector(".checkbox ").disable=true;
-  // }
-  // else{
-  //  temp3.querySelector(".available").style.color=
-  // }
+ 
   document.querySelector("#availableSpots").appendChild(clone);
 }
 
-let green_camp;
 pre_book = document.getElementById("pre-book").innerText;
-// let green_camp= document.getElementById("green-cam").value;
 
 let total1;
 let total2;
@@ -191,7 +178,6 @@ greencamp.addEventListener("change", () => {
   let normTicket = parseFloat(
     document.getElementById("normal-price").innerText
   );
-  // total1 = normTicket * cmp.innerText;
   updateTotalGlobal();
 });
 poke2.addEventListener("click", normalTicketplus);
@@ -213,10 +199,7 @@ function vipTicketminus() {
     newCount = 0;
   }
   cmp1.innerHTML = newCount;
-  // let vipticket = document.getElementById("vip-price").innerText;
 
-  // total2 = parseFloat(vipticket) * cmp1.innerText;
-  // console.log(total2);
   updateTotalGlobal();
 }
 vipTicketminus();
@@ -232,7 +215,6 @@ function vipTicketplus() {
 vipTicketplus();
 
 let calcTotal = parseInt(total1) + parseInt(total2) + parseInt(pre_book);
-// document.getElementById("total").innerHTML = calcTotal;
 
 function updateTotal(newNumber) {
   if (newNumber == 0) {
@@ -264,7 +246,7 @@ function requiredData() {}
 
 document.getElementById("form1").addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log("Form submission cancelled.");
+
   onClick();
 });
 function onClick() {
